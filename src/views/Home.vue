@@ -1,18 +1,137 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div>
+    <div class="d-flex justify-content-between hero">
+      <div class="text-left text-primary hero-content">
+        <h1>Verida Tech Capabilities</h1>
+        <span>Check out our demos to find out about our capabilities</span>
+        <div class="hero-content-demo row">
+          <div class="col-6">
+            <a href="/connect" class="hero-content-demo-list">
+              <div class="d-flex">
+                <img src="../assets/icons/link.svg" alt="link" />
+                <span>Connect</span>
+              </div>
+              <div>
+                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
+              </div>
+            </a>
+          </div>
+          <div class="col-6">
+            <div class="hero-content-demo-list">
+              <div class="d-flex">
+                <img src="../assets/icons/Tree.svg" alt="link" />
+                <span>Store Data using Schema</span>
+              </div>
+              <div>
+                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="hero-content-demo-list">
+              <div class="d-flex">
+                <img src="../assets/icons/Share.svg" alt="link" />
+                <span>Send Message</span>
+              </div>
+              <div>
+                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="hero-content-demo-list">
+              <div class="d-flex">
+                <img src="../assets/icons/link.svg" alt="link" />
+                <span>Share Data</span>
+              </div>
+              <div>
+                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="hero-content-demo-list">
+              <div class="d-flex">
+                <img src="../assets/icons/Database.svg" alt="link" />
+                <span>Store Data</span>
+              </div>
+              <div>
+                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="hero-content-demo-list">
+              <div class="d-flex">
+                <img src="../assets/icons/pull_request.svg" alt="link" />
+                <span>Request Data & Respond</span>
+              </div>
+              <div>
+                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div clas="hero-image">
+        <img src="../assets/images/landing_page.svg" alt="carousel" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
 export default Vue.extend({
   name: "Home",
-  components: {
-    HelloWorld,
-  },
 });
 </script>
+
+<style scoped lang="scss">
+@import "../assets/scss/_variable.scss";
+.hero {
+  margin: -4rem 0 0 0;
+  .hero-content {
+    margin: 10rem 0 0 0;
+    h1 {
+      font-weight: bold;
+      font-size: 72px;
+      line-height: 86px;
+      letter-spacing: -0.03em;
+      color: $white;
+      word-wrap: break-word;
+    }
+    &-demo {
+      margin: 2.5rem 0 0 0;
+      & > div {
+        margin: 0.3rem -0.4rem;
+      }
+      &-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 20px 0px 18px;
+        // width: 384px;
+        height: 64px;
+        /* Dark Blue 80 */
+        background: #11132c;
+        /* Dark Blue 60 */
+
+        border: 1px solid #1d1f40;
+        box-sizing: border-box;
+        /* box shadow */
+        box-shadow: 0px 4px 25px rgba(65, 65, 65, 0.4);
+        border-radius: $border-radius;
+        span {
+          margin: 0 0.5rem;
+        }
+      }
+    }
+  }
+  .hero-image {
+    margin: -2rem -5rem 0 0;
+  }
+}
+</style>

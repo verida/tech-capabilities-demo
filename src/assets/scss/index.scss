@@ -1,0 +1,8 @@
+@import './variable';
+
+body{
+ background-color: $bg-dark100 !important
+}
+
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-vue/src/index';  

@@ -1,8 +1,22 @@
 <template>
   <div class="container">
     <app-header />
-    <div class="app-layout">
-      <router-view />
+    <div>
+      <!-- <aside>
+        <ul>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+          <li>Demo</li>
+        </ul>
+      </aside> -->
+      <div class="app-layout container">
+        <router-view />
+      </div>
     </div>
     <app-footer />
   </div>
@@ -30,5 +44,12 @@ export default Vue.extend({
 }
 .container {
   position: relative;
+}
+aside {
+  width: 200px;
+  border-radius: 1px solid white;
+}
+.root {
+  display: flex;
 }
 </style>

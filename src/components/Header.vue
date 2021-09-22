@@ -3,23 +3,6 @@
     <a href="/" class="text-decoration-none">
       <img height="40" src="../assets/images/Logo.svg" alt="verida-logo" />
     </a>
-    <div class="d-flex justify-content-between">
-      <div />
-      <b-dropdown
-        id="dropdown-1"
-        variant="bg-dark100"
-        text="Connect"
-        class="demo-select"
-      >
-        <b-dropdown-item aria-selected="true"
-          ><img
-            class="select-image"
-            src="../assets/icons/link.svg"
-            alt="link"
-          />Connect
-        </b-dropdown-item>
-      </b-dropdown>
-    </div>
   </div>
 </template>
 
@@ -27,7 +10,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "Header",
+  name: "app-header",
 });
 </script>
 

@@ -2,7 +2,6 @@
   <div>
     <div class="code-example">
       <code-preview class="my-5" />
-      <prism class="mb-4" language="javascript">{{ code }}</prism>
       <p class="mb-5">
         Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi
         vestibulum, et, nunc, consequat lacus, morbi mattis. Scelerisque in

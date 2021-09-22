@@ -5,32 +5,18 @@
       <a class="text-white" href="##">@Verida{{ date }}</a>
       <a class="text-white" href="##">Terms&Conditions</a>
     </div>
-    <!-- <button @click="connect" class="btn btn-secondary btn-lg text-center">
-      Connect
-    </button> -->
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import vaultConnector from "@/helpers/VaultConnector";
 
 export default Vue.extend({
   name: "Footer",
   data() {
     return {
       date: new Date().getFullYear(),
-      // loading: false,
     };
-  },
-  methods: {
-    async connect(): Promise<void> {
-      // this.loading = true;
-      await vaultConnector.connectVault();
-      console.log("open...");
-      console.log(vaultConnector.profile);
-      console.log("close...");
-    },
   },
 });
 </script>

@@ -2,18 +2,6 @@
   <div class="container">
     <app-header />
     <div>
-      <!-- <aside>
-        <ul>
-          <li>Demo</li>
-          <li>Demo</li>
-          <li>Demo</li>
-          <li>Demo</li>
-          <li>Demo</li>
-          <li>Demo</li>
-          <li>Demo</li>
-          <li>Demo</li>
-        </ul>
-      </aside> -->
       <div class="app-layout container">
         <router-view />
       </div>
@@ -51,5 +39,9 @@ aside {
 }
 .root {
   display: flex;
+}
+
+.editor-layout {
+  flex-direction: row-reverse !important;
 }
 </style>

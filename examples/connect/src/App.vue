@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="app-header">
-      <img src="./assets/logoverida.svg" alt="verida-logo" />
+      <img src="http://assets.verida.io/verida_logo.svg" alt="verida-logo" />
       <div v-show="connected" class="app-avatar">
         <span>{{ profile.name }}</span>
         <img :src="profile.avatar" alt="user" />
@@ -78,7 +78,6 @@ export default defineComponent({
     connecVault.on("profileChanged", () => {
       this.setprofile();
     });
-    this.connect();
   },
 });
 </script>

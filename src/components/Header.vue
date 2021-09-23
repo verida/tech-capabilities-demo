@@ -1,8 +1,8 @@
 <template>
   <div class="d-flex justify-content-between mt-3">
-    <a href="/" class="text-decoration-none">
+    <!-- <a href="/" class="text-decoration-none">
       <img height="40" src="../assets/images/Logo.svg" alt="verida-logo" />
-    </a>
+    </a> -->
   </div>
 </template>
 

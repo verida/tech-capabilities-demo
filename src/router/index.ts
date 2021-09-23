@@ -13,7 +13,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/connect",
     name: "Connect",
-    component: () => import("../views/Connect.vue"),
+    component: () => import("../views/connect/Connect.vue"),
   },
   {
     path: "/SendMessage",

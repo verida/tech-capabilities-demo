@@ -62,7 +62,6 @@ export default Vue.extend({
   //   left: 0;
   //   top: 0;
   height: 100%;
-  //   width: 18%;
   margin: 1rem 0;
   padding: 1rem 3rem 0 2rem;
   border-right: 1px solid #1d1f40;

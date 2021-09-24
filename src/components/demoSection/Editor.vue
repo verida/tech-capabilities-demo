@@ -12,36 +12,26 @@
 <script>
 import Vue from "vue";
 import { PrismEditor } from "vue-prism-editor";
-import "vue-prism-editor/dist/prismeditor.min.css"; // import the styles somewhere
+import "vue-prism-editor/dist/prismeditor.min.css";
 
-// import highlighting library (you can use any library you want just return html string)
 import { highlight, languages } from "prismjs/components/prism-core";
 import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "../../assets/styles/preview.themes.css";
-// import "prismjs/themes/prism-tomorrow.css"; // import syntax highlighting styles
+// import "prismjs/themes/prism-okaidia.css";
 
 export default Vue.extend({
   name: "CodePreview",
   components: {
     PrismEditor,
   },
+  props: {
+    code: {
+      type: String,
+    },
+  },
   data() {
     return {
-      code: `
-      "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Stripe: Webhooks listen",
-      "type": "stripe",
-      "request": "launch",
-      "command": "listen",
-      "forwardTo": "http://localhost:3000",
-      "forwardConnectTo": "http://localhost:3000",
-      "events": ["payment_intent.succeeded", "payment_intent.canceled"],
-  },
-  describe("Symmetric encryption", function()
-      `,
       lineNumbers: true,
     };
   },
@@ -57,13 +47,10 @@ export default Vue.extend({
 <style lang="scss">
 // required class
 .my-editor {
-  background: #2d2d2d;
-  color: #ccc;
-  font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
+  // background: #2d2d2d;
+  color: #fff;
   font-size: 14px;
-  line-height: 1.5;
   padding: 5px;
-  background: #11132c;
   border: 1px solid #1d1f40;
   box-sizing: border-box;
   border-radius: 12px;

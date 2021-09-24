@@ -1,0 +1,149 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  box-shadow: 0px 4px 15px rgba(17, 45, 87, 0.05);
+}
+
+.m-dropdown-top {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.m-dropdown div h4 {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+  color: #041133;
+  text-align: right;
+  padding: 0 1.5rem;
+  text-transform: capitalize;
+}
+
+.m-dropdown div span {
+  font-size: 14px;
+  line-height: 130%;
+  color: #687085;
+  font-weight: 200;
+}
+
+.m-dropdown-logout {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #e6e8eb;
+  margin: 0 1rem;
+  padding: 0.5rem 0;
+}
+
+.m-dropdown-logout img {
+  height: 18px !important;
+  width: 18px !important;
+}
+
+.m-dropdown-logout span {
+  font-size: 16px;
+  color: #041133;
+}
+
+.m-dropdown {
+  position: absolute;
+  padding: 0px;
+  top: 4rem;
+  right: -1.7rem;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(17, 45, 87, 0.05);
+  filter: drop-shadow(0px 8px 20px rgba(17, 45, 87, 0.2));
+}
+.app-user {
+  position: relative;
+  display: none;
+  align-items: center;
+}
+.app-user span {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+  color: #041133;
+  margin: 0px 16px;
+}
+
+.app-user img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.action-btn button {
+  display: flex;
+  align-items: center;
+  padding: 8px 48px;
+  position: absolute;
+  width: 193px;
+  height: 52px;
+  left: calc(50% - 193px / 2 + 0.5px);
+  top: 50%;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-image {
+  margin: -0.3rem 0.6rem;
+}
+
+.action-btn .connect {
+  background: #423bce;
+}
+
+.action-btn .disconnect {
+  display: none;
+  background: #060520;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10rem auto 0 auto;
+}
+
+.loading div {
+  width: 0.6rem;
+  height: 3rem;
+  margin: 2rem 0.3rem;
+  background: black;
+  border-radius: 12px;
+  animation: 0.9s bounce infinite alternate;
+}
+
+.loading div:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loading div:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.waiting-to-connect {
+  display: none;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #888888;
+}
+
+@keyframes bounce {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}

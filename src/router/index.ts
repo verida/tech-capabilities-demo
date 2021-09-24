@@ -13,11 +13,12 @@ const routes: Array<RouteConfig> = [
   {
     path: "/connect",
     name: "Connect",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Connect.vue"),
+    component: () => import("../views/connect/Connect.vue"),
+  },
+  {
+    path: "/SendMessage",
+    name: "SendMessage",
+    component: () => import("../views/SendMessage.vue"),
   },
 ];
 

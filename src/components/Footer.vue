@@ -2,8 +2,8 @@
   <div class="footer">
     <div class="divider mb-2" />
     <div class="footer-content d-flex justify-content-between">
-      <a href="##">@Verida{{ date }}</a>
-      <a href="##">Terms&Conditions</a>
+      <a class="text-white" href="##">@Verida{{ date }}</a>
+      <a class="text-white" href="##">Terms&Conditions</a>
     </div>
   </div>
 </template>
@@ -30,6 +30,7 @@ export default Vue.extend({
   font-weight: 300;
   font-size: 14px;
   line-height: 18px;
+  text-decoration: none;
 }
 
 .divider {

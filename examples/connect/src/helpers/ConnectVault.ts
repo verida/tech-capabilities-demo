@@ -21,7 +21,7 @@ class ConnectVault extends EventEmitter {
   private connection: any;
   private profileInstance: any;
   private account: any;
-  private did?: string;
+  public did?: string;
   error = {};
   profile = {};
 

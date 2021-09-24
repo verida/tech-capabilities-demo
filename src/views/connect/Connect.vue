@@ -5,12 +5,12 @@
       <code-example :code="codeDemo" />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
       <iframe
-        src="https://codesandbox.io/embed/damp-fire-66muh?fontsize=13&theme=dark"
+        src="https://codesandbox.io/embed/verida-connect-demo-66muh?codemirror=2&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fhelpers%2FConnectVault.ts&theme=dark"
         style="
           width: 100%;
           height: 500px;
           border: 0;
-          border-radius: 12px;
+          border-radius: 4px;
           overflow: hidden;
         "
         title="verida connect demo"

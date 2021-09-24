@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="code-example">
-      <code-preview class="my-5" />
+      <code-preview :code="code" class="my-5" />
       <p class="mb-5">
         Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi
         vestibulum, et, nunc, consequat lacus, morbi mattis. Scelerisque in
@@ -27,6 +27,11 @@ import CodePreview from "./Editor.vue";
 
 export default Vue.extend({
   name: "CodeExample",
+  props: {
+    code: {
+      type: String,
+    },
+  },
   components: {
     "code-preview": CodePreview,
   },

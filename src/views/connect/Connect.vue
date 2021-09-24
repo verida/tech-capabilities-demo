@@ -5,7 +5,7 @@
       <code-example :code="codeDemo" />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
       <iframe
-        src="https://codesandbox.io/embed/quiet-cherry-mvbuz?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fhelpers%2FConnectVault.ts&theme=dark"
+        src="https://codesandbox.io/embed/charming-snowflake-m6ypg?fontsize=14&hidenavigation=1&module=%2Fsrc%2FconnectVault.js&theme=dark"
         style="
           width: 100%;
           height: 500px;
@@ -13,7 +13,7 @@
           border-radius: 4px;
           overflow: hidden;
         "
-        title="Verida-connect-demo"
+        title="Verida Connect with SSO Demo"
         allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
         sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
       ></iframe>

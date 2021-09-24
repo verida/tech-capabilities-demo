@@ -1,4 +1,4 @@
-import "./style.css";
+import "./styles.css";
 import linkIcon from "./assets/link.png";
 import unlinkIcon from "./assets/Unlink.png";
 import connectVault from "./connectVault";

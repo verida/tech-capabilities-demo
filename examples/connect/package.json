@@ -1,25 +1,26 @@
 {
-  "name": "connect-demo",
+  "name": "vanilla",
   "version": "1.0.0",
-  "description": "verida library SSO login Demo",
+  "description": "JavaScript example starter project",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html"
   },
-  "keywords": [
-    "Demo",
-    "js"
-  ],
-  "author": "verida",
-  "license": "MIT",
   "dependencies": {
-    "@verida/account-web-vault": "^1.0.1",
-    "@verida/client-ts": "^1.0.1"
+    "@babel/plugin-proposal-class-properties": "7.14.5",
+    "@verida/client-ts": "1.0.1",
+    "parcel-bundler": "^1.6.1",
+    "@verida/account-web-vault": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "parcel-bundler": "^1.6.1"
-  }
+    "@babel/core": "7.2.0"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.13.8"
+  },
+  "keywords": [
+    "javascript",
+    "starter"
+  ]
 }

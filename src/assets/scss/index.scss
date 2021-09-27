@@ -1,8 +1,4 @@
 
-
-
-
-
 @import "~bootstrap/scss/functions";
 @import './variable';
 @import "~bootstrap/scss/variables";
@@ -42,14 +38,7 @@
 @import "~bootstrap/scss/spinners";
 @import "~bootstrap/scss/utilities";
 @import "~bootstrap/scss/print";
-
-
-
 @import '~bootstrap-vue/src/index';
-
-
-
-
 
 
 
@@ -67,8 +56,6 @@ html {
   -webkit-text-size-adjust: 100%; // 4
   -webkit-tap-highlight-color: rgba($black, 0); // 5
 }
-
-
 
 body{
  background-color: $bg-dark100 !important

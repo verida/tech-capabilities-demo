@@ -2,7 +2,7 @@
   <div>
     <div class="demo-bg">
       <h5 class="text-center">Keep Exploring</h5>
-      <div class="d-flex justify-content-center">
+      <div class="demo-content">
         <div v-for="demo in demolist" :key="demo" class="demo-card">
           <div class="demo-card-box"></div>
           <hr />
@@ -32,10 +32,19 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 @import "../assets/scss/_variable.scss";
+$mobile: 768px;
 
 .demo-bg {
-  // background: $bg-dark80;
   padding: 10rem 0;
+}
+
+.demo-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+  }
 }
 
 h5 {

@@ -26,7 +26,7 @@ document.getElementById("app").innerHTML = `
         <img class="btn-image" src=${linkIcon} alt="connect" /><span>Connect</span>
       </button>
       <button class="disconnect">
-        <img class="btn-image" src=${unlinkIcon} alt="connect" /><span>Diconnect</span>
+        <img class="btn-image" src=${unlinkIcon} alt="connect" /><span>Disconnect</span>
       </button>
     </div>
   </div>

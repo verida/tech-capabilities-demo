@@ -9,7 +9,7 @@
         pellentesque
       </p>
       <div class="content-image text-center mb-4">
-        <img src="../../assets/images/carousel.png" alt="" />
+        <img class="img-fluid" src="../../assets/images/carousel.png" alt="" />
       </div>
       <p class="mt-5">
         Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi

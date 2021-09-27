@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="content">
-      <h1 class="text-primary">Connect</h1>
+      <h1 class="text-primary">{{ title }}</h1>
       <p class="mb-4">
         Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi
         vestibulum, et, nunc, consequat lacus, morbi mattis. Scelerisque in
@@ -15,7 +15,7 @@
         pellentesque
       </p>
       <div class="content-image text-center mb-4">
-        <img src="../../assets/images/carousel.png" alt="" />
+        <img class="img-fluid" src="../../assets/images/carousel.png" alt="" />
       </div>
       <p class="mt-5">
         Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi
@@ -32,6 +32,12 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "ContentSection",
+  props: {
+    title: {
+      type: String,
+      default: "Connect",
+    },
+  },
 });
 </script>
 

@@ -16,9 +16,9 @@ const routes: Array<RouteConfig> = [
     component: () => import("../views/connect/Connect.vue"),
   },
   {
-    path: "/SendMessage",
-    name: "SendMessage",
-    component: () => import("../views/SendMessage.vue"),
+    path: "/send-message",
+    name: "send-message",
+    component: () => import("../views/sendMessage/SendMessage.vue"),
   },
 ];
 

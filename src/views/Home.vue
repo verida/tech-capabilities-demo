@@ -21,7 +21,7 @@
                 ]"
                 @click="navigate"
               >
-                <div class="d-flex">
+                <div class="d-flex justify-content-center">
                   <img src="../assets/icons/link.svg" alt="link" />
                   <span>Connect</span>
                 </div>
@@ -35,15 +35,33 @@
             </router-link>
           </div>
           <div class="col-6">
-            <div class="hero-content-demo-list">
-              <div class="d-flex">
-                <img src="../assets/icons/Tree.svg" alt="link" />
-                <span>Store Data using Schema</span>
-              </div>
-              <div>
-                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
-              </div>
-            </div>
+            <router-link
+              class="router-link"
+              to="/schemaless-data"
+              v-slot="{ href, navigate }"
+              custom
+            >
+              <a
+                :href="href"
+                :class="[
+                  isActive
+                    ? 'router-link-active'
+                    : 'hero-content-demo-list text-decoration-none text-white ',
+                ]"
+                @click="navigate"
+              >
+                <div class="d-flex justify-content-center">
+                  <img src="../assets/icons/Tree.svg" alt="link" />
+                  <span>Store Schemaless Data</span>
+                </div>
+                <div>
+                  <img
+                    src="../assets/icons/angle_right.svg"
+                    alt="angle_right"
+                  />
+                </div>
+              </a>
+            </router-link>
           </div>
           <div class="col-6">
             <router-link

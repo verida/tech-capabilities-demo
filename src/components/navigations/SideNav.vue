@@ -39,7 +39,7 @@
       </router-link>
       <router-link
         class="router-link"
-        to="/send-data"
+        to="/schemaless-data"
         v-slot="{ href, navigate, isActive }"
         custom
       >
@@ -49,7 +49,7 @@
             :href="href"
             :class="[isActive ? 'router-link-active' : 'text-white']"
             @click="navigate"
-            >Send Data</a
+            >Store schemaless Data</a
           >
         </li>
       </router-link>

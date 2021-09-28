@@ -10,12 +10,7 @@ import {
 
 const EventEmitter = require("events");
 
-const {
-  VUE_APP_LOGIN_URI,
-  VUE_APP_SERVER_URI,
-  VUE_APP_LOGO_URL,
-  VUE_APP_CLIENT_AUTH_NAME,
-} = process.env;
+const { VUE_APP_LOGO_URL } = process.env;
 
 const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
 const CONTEXT_NAME = "Verida: Tech Demo App";

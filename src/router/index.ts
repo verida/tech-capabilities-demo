@@ -20,6 +20,11 @@ const routes: Array<RouteConfig> = [
     name: "send-message",
     component: () => import("../views/sendMessage/SendMessage.vue"),
   },
+  {
+    path: "/schemaless-data",
+    name: "schemaless-data",
+    component: () => import("../views/schemalessData/SchemalessData.vue"),
+  },
 ];
 
 const router = new VueRouter({

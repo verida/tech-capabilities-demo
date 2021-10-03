@@ -16,7 +16,7 @@ const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
 const CONTEXT_NAME = "Verida: Tech Demo App";
 const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
 
-class VaultConnector extends EventEmitter {
+class VeridaHelpers extends EventEmitter {
   private connection: any;
   private profileInstance: any;
   private account: any;
@@ -116,6 +116,6 @@ class VaultConnector extends EventEmitter {
   }
 }
 
-const vaultConnector = new VaultConnector();
+const veridaHelpers = new VeridaHelpers();
 
-export default vaultConnector;
+export default veridaHelpers;

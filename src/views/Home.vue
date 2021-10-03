@@ -131,32 +131,6 @@
         <img src="../assets/images/landing_page.svg" alt="carousel" />
       </div>
     </div>
-    =<iframe
-      src="https://codesandbox.io/embed/verida-tech-demos-forked-y9fgr?fontsize=14&hidenavigation=1&initialpath=%23send-message&module=%2Fsrc%2Fdemo-js%2Fsend-message.js&theme=dark"
-      style="
-        width: 100%;
-        height: 500px;
-        border: 0;
-        border-radius: 4px;
-        overflow: hidden;
-      "
-      title="Verida Tech Demos (Forked)"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    ></iframe>
-    <iframe
-      src="https://codesandbox.io/embed/verida-tech-demos-forked-y9fgr?fontsize=14&hidenavigation=1&initialpath=%23store-schemaless-data&module=%2Fsrc%2Fdemo-js%2Fstore-schemaless-data.js&theme=dark"
-      style="
-        width: 100%;
-        height: 500px;
-        border: 0;
-        border-radius: 4px;
-        overflow: hidden;
-      "
-      title="Verida Tech Demos (Forked)"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    ></iframe>
   </div>
 </template>
 

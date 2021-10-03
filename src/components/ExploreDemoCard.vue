@@ -3,13 +3,15 @@
     <div class="demo-bg">
       <h5 class="text-center">Keep Exploring</h5>
       <div class="demo-content">
-        <div v-for="demo in demolist" :key="demo" class="demo-card">
+        <div v-for="(demo, index) in demos" :key="index" class="demo-card">
           <div class="demo-card-box"></div>
           <hr />
-          <span>Previous Demo</span>
+          <span>{{ index === 0 ? "Previous" : "Current" }}Demo</span>
           <div class="d-flex justify-content-between demo-card-action">
-            <h6 class="text-priamry">Connect</h6>
-            <b-icon class="text-primary" icon="arrow-right" />
+            <h6 class="text-priamry">{{ demo.name }}</h6>
+            <router-link :to="demo.link">
+              <b-icon class="text-primary" icon="arrow-right" />
+            </router-link>
           </div>
         </div>
       </div>
@@ -18,14 +20,22 @@
 </template>
 
 <script lang="ts">
+import { TLinks } from "@/interface";
 import Vue from "vue";
+
+interface IData {
+  demos: TLinks[];
+}
 
 export default Vue.extend({
   name: "ExploreDemo",
-  data() {
+  data(): IData {
     return {
-      demolist: [1, 2],
+      demos: [],
     };
+  },
+  mounted() {
+    this.demos = [this.$store.state.demos.prev, this.$store.state.demos.next];
   },
 });
 </script>

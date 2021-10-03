@@ -28,6 +28,7 @@ import ContentDisplay from "@/components/demoSection/Content.vue";
 import CodeExample from "@/components/demoSection/CodeExample.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
 import { connectCodeTemplate as codeDemo } from "./data";
+import $store from "@/store";
 
 export default Vue.extend({
   name: "ContentSection",
@@ -44,6 +45,14 @@ export default Vue.extend({
     };
   },
   methods: {},
+  beforeRouteEnter(to, from, next) {
+    next(() => {
+      $store.commit("demoDisplay", {
+        currentPath: to,
+        prevPath: from,
+      });
+    });
+  },
 });
 </script>
 

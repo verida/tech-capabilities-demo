@@ -4,19 +4,7 @@
       <content-display title="Send Message" />
       <code-example :code="codeDemo" />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
-      <div
-        class="
-          warning-demo
-          d-flex
-          justify-content-center
-          align-items-center
-          mt-3
-          mb-5
-        "
-      >
-        <img src="../../assets/icons/warning_icon.png" alt="warning" />
-        <span class="mx-2">Run "Connect" demo first</span>
-      </div>
+
       <iframe
         src="https://codesandbox.io/embed/verida-send-message-demo-z480q?fontsize=14&hidenavigation=1&module=%2Fsrc%2FconnectVault.js&theme=dark"
         style="
@@ -41,6 +29,7 @@ import ContentDisplay from "@/components/demoSection/Content.vue";
 import CodeExample from "@/components/demoSection/CodeExample.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
 import { codeDemo } from "./data";
+import $store from "@/store";
 
 export default Vue.extend({
   name: "ContentSection",
@@ -57,6 +46,14 @@ export default Vue.extend({
     };
   },
   methods: {},
+  beforeRouteEnter(to, from, next) {
+    next(() => {
+      $store.commit("demoDisplay", {
+        currentPath: to,
+        prevPath: from,
+      });
+    });
+  },
 });
 </script>
 
@@ -64,11 +61,5 @@ export default Vue.extend({
 @import "../../assets/scss/_variable.scss";
 h3 {
   font-size: 36px;
-}
-.warning-demo {
-  font-size: 16px;
-  line-height: 20px;
-
-  color: #d9be36;
 }
 </style>

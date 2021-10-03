@@ -17,12 +17,12 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/send-message",
-    name: "send-message",
+    name: "Send Message",
     component: () => import("../views/sendMessage/SendMessage.vue"),
   },
   {
     path: "/schemaless-data",
-    name: "schemaless-data",
+    name: "Store Schemaless Data",
     component: () => import("../views/schemalessData/SchemalessData.vue"),
   },
 ];

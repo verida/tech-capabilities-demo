@@ -15,3 +15,22 @@ export interface ProfileDetails {
   country: string;
   avatar: string;
 }
+
+export type TLinks = {
+  name: string;
+  link: string;
+};
+
+export type TDemos = {
+  prev: TLinks | undefined;
+  next: TLinks | undefined;
+};
+
+export interface IViewState {
+  demos: TDemos;
+}
+
+export interface IRoute<T> {
+  currentPath: T;
+  prevPath: T;
+}

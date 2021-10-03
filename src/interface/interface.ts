@@ -30,7 +30,7 @@ export interface IViewState {
   demos: TDemos;
 }
 
-export interface IRoute<T> {
+export interface IRouteStore<T> {
   currentPath: T;
   prevPath: T;
 }

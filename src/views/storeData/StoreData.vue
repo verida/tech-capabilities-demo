@@ -1,10 +1,9 @@
 <template>
   <div>
     <div class="content">
-      <content-display title="Store Data" />
-      <code-example :code="codeDemo" />
+      <content-display :fileContent="fileContent" title="Store Data" />
+      <code-example :code="codeDemo" :descriptionContent="description" />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
-
       <iframe
         src="https://codesandbox.io/embed/verida-send-message-demo-z480q?fontsize=14&hidenavigation=1&module=%2Fsrc%2FconnectVault.js&theme=dark"
         style="
@@ -25,11 +24,15 @@
 
 <script lang="ts">
 import Vue from "vue";
+import marked from "marked";
 import ContentDisplay from "@/components/demoSection/Content.vue";
 import CodeExample from "@/components/demoSection/CodeExample.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
 import { codeDemo } from "./data";
 import $store from "@/store";
+
+import FileContent from "@/docs/store-data/ContentOne.md";
+import DescriptionContent from "@/docs/store-data/ContentTwo.md";
 
 export default Vue.extend({
   name: "StoreData",
@@ -42,10 +45,20 @@ export default Vue.extend({
     return {
       loading: false,
       showCode: true,
+      fileContent: null,
+      description: null,
       codeDemo,
     };
   },
-  methods: {},
+  methods: {
+    getContent() {
+      this.fileContent = marked(FileContent, { sanitize: true });
+      this.description = marked(DescriptionContent, { sanitize: true });
+    },
+  },
+  created() {
+    this.getContent();
+  },
   beforeRouteEnter(to, from, next) {
     next(() => {
       $store.commit("demoDisplay", {

@@ -25,6 +25,11 @@ const routes: Array<RouteConfig> = [
     name: "Store Schemaless Data",
     component: () => import("../views/schemalessData/SchemalessData.vue"),
   },
+  {
+    path: "/store-data",
+    name: "Store Data ",
+    component: () => import("../views/storeData/StoreData.vue"),
+  },
 ];
 
 const router = new VueRouter({

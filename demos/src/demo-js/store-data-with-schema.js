@@ -1,33 +1,42 @@
-import "../assets/styles/store-schemaless-data.css";
+import "../assets/styles/store-schema-data.css";
 import messageIcon from "../assets/images/message.png";
 import statusIcon from "../assets/images/status_icon.png";
+import SaveIcon from "../assets/images/save.png";
 import VeridaHelpers from "../helpers/VeridaHelpers";
 
-export const StoreSchemalessData = () => {
+export const StoreDataWithSchema = () => {
   document.getElementById("app").innerHTML = `
   <div>
-    <form class="form-modal">
-        <span id="message"> </span>
-        <textarea  class="desc-text">
-        </textarea/>
-        <button  type="submit" class="send-message">
-          <img class="btn-image" src=${messageIcon} alt="connect" />
+    <form class="form-fields">
+     <div class="form-fields-input">
+    <div>
+    <label>First name</label>
+    <input id="firstName" required type="text" />
+    </div>
+    <div>
+    <label>Last name</label>
+    <input id="lastName" required type="text" />
+    </div>
+    <div>
+    <label>Email</label>
+    <input id="email" required class="email-id" type="email" />
+    </div>
+    </div> 
+    <div class="form-input-action">
+      <div>
+      </div>
+       <button type="submit" class="send-message">
+          <img class="btn-image" src=${SaveIcon} alt="connect" />
           <span>Save Data </span>
         </button>
+    </div>
+
     </form>
-    <div class="status-action-buttons">
-    <button  class="clear-input">
-     Clear
-    </button>
-    <button class="retrieve-decrypted">
-     Retrieve Decrypted
-    </button>
-  </div>
     <div class="message-status">
       <img class="btn-image" src=${statusIcon} alt="connect" />
       <h3>Data Saved</h3>
-      <button class="retrieve-enrypted">
-      Retrieve Encrypted
+      <button class="close-message">
+     close
       </button>
     </div>
     <div class="waiting-to-connect">
@@ -57,45 +66,37 @@ export const StoreSchemalessData = () => {
       createElement(".waiting-to-connect").style.display = "block";
       await VeridaHelpers.connect();
       createElement(".waiting-to-connect").style.display = "none";
-      createElement(".form-modal").style.display = "flex";
+      createElement(".form-fields").style.display = "block";
     } catch (error) {
+      console.log(error);
+
       createElement(".action-btn .connect").style.display = "block";
+      createElement(".waiting-to-connect").style.display = "none";
     }
   };
 
   const saveItem = async (event) => {
     event.preventDefault();
-    const descData = createElement(".desc-text").value.trim();
-    createElement(".form-modal").style.display = "none";
+    const firstName = createElement("#firstName").value;
+    const lastName = createElement("#lastName").value;
+    const email = createElement("#email").value;
+    createElement(".form-fields").style.display = "none";
     createElement(".waiting-to-connect").style.display = "block";
+
     const data = {
-      text: descData,
+      email,
+      firstName,
+      lastName,
     };
 
-    await VeridaHelpers.saveInDatabase(data);
+    await VeridaHelpers.saveInDataStore(data);
     createElement(".waiting-to-connect").style.display = "none";
     createElement(".message-status ").style.display = "flex";
   };
 
-  const getEncryptedData = async () => {
-    const data = await VeridaHelpers.getEncryptedData();
-    createElement(".desc-text").value = data.payload;
-
-    createElement(".message-status").style.display = "none";
-    createElement(".send-message").style.display = "none";
-    createElement(".status-action-buttons").style.display = "flex";
-    createElement(".form-modal").style.display = "flex";
-  };
-
-  const clearInput = () => {
-    createElement(".desc-text").value = "";
-    createElement(".send-message").style.display = "flex";
-    createElement(".status-action-buttons").style.display = "none";
-  };
-
-  const getDecryptedData = async () => {
-    const data = await VeridaHelpers.getDecryptedData();
-    createElement(".desc-text").value = data.text;
+  const closeMessage = () => {
+    createElement(".form-fields").style.display = "block";
+    createElement(".message-status ").style.display = "none";
   };
 
   const closeModal = (event) => {
@@ -110,19 +111,8 @@ export const StoreSchemalessData = () => {
 
   createElement(".action-btn .connect").addEventListener("click", connect);
 
-  createElement(".form-modal").addEventListener("submit", saveItem);
-
-  createElement(".clear-input").addEventListener("click", clearInput);
-
-  createElement(".retrieve-enrypted").addEventListener(
-    "click",
-    getEncryptedData
-  );
-
-  createElement(".retrieve-decrypted").addEventListener(
-    "click",
-    getDecryptedData
-  );
+  createElement(".form-fields").addEventListener("submit", saveItem);
+  createElement(".close-message").addEventListener("click", closeMessage);
 
   window.addEventListener("click", closeModal);
 };

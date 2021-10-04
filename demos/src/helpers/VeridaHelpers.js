@@ -10,26 +10,29 @@ const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
 const CONTEXT_NAME = "Verida: Connect Demo";
 const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
 
+const TEST_DATASTORE_SCHEMA = "https://8igsn.csb.app/schemas/schema.json";
+
 class VeridaHelpers extends EventEmitter {
-  connection = {};
+  context = {};
   profileInstance = {};
   account = null;
   did = "";
   error = {};
   profile = {};
   schemalessDb = {};
+  dataStore = {};
 
   /**
    * Public method for initializing this app
    */
   async initApp() {
-    if (!this.connection) {
+    if (!this.context) {
       await this.connect();
     }
   }
 
   appInitialized() {
-    return this.connection !== null;
+    return this.context !== null;
   }
 
   async connect() {
@@ -47,7 +50,7 @@ class VeridaHelpers extends EventEmitter {
       },
     });
 
-    this.connection = await Network.connect({
+    this.context = await Network.connect({
       client: {
         ceramicUrl: CERAMIC_URL,
       },
@@ -62,12 +65,13 @@ class VeridaHelpers extends EventEmitter {
 
     this.emit("initialized");
 
-    this.schemalessDb = await this.connection.openDatabase("test_db");
+    this.schemalessDb = await this.context.openDatabase("test_db");
+    this.dataStore = await this.context.openDatastore(TEST_DATASTORE_SCHEMA);
   }
 
   async initProfile() {
     const services = this;
-    const client = this.connection.getClient();
+    const client = this.context.getClient();
     this.profileInstance = await client.openPublicProfile(
       this.did,
       "Verida: Vault"
@@ -87,8 +91,15 @@ class VeridaHelpers extends EventEmitter {
     await cb();
   }
 
-  async saveSchemelassData(data) {
+  async saveInDatabase(data) {
     await this.schemalessDb.save(data);
+    return true;
+  }
+
+  async saveInDataStore(data) {
+    const res = await this.dataStore.save(data);
+    console.log(data, res);
+
     return true;
   }
 
@@ -120,7 +131,7 @@ class VeridaHelpers extends EventEmitter {
         recipientContextName: "Verida: Vault",
       };
 
-      const messaging = await this.connection.getMessaging();
+      const messaging = await this.context.getMessaging();
       await messaging.send(this.did, type, data, message, config);
     } catch (error) {
       console.log("messager error", { error });
@@ -134,7 +145,7 @@ class VeridaHelpers extends EventEmitter {
 
   async logout() {
     await this.account.disconnect();
-    this.connection = null;
+    this.context = null;
     this.profileInstance = null;
     this.account = null;
     this.did = "";

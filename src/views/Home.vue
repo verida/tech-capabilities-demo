@@ -93,21 +93,39 @@
             </router-link>
           </div>
           <div class="col-6">
-            <div class="hero-content-demo-list">
-              <div class="d-flex">
-                <img src="../assets/icons/link.svg" alt="link" />
-                <span>Share Data</span>
-              </div>
-              <div>
-                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
-              </div>
-            </div>
+            <router-link
+              class="router-link"
+              to="/store-data"
+              v-slot="{ href, navigate }"
+              custom
+            >
+              <a
+                :href="href"
+                :class="[
+                  isActive
+                    ? 'router-link-active'
+                    : 'hero-content-demo-list text-decoration-none text-white ',
+                ]"
+                @click="navigate"
+              >
+                <div class="d-flex">
+                  <img src="../assets/icons/Database.svg" alt="link" />
+                  <span>Store Data</span>
+                </div>
+                <div>
+                  <img
+                    src="../assets/icons/angle_right.svg"
+                    alt="angle_right"
+                  />
+                </div>
+              </a>
+            </router-link>
           </div>
           <div class="col-6">
             <div class="hero-content-demo-list">
               <div class="d-flex">
-                <img src="../assets/icons/Database.svg" alt="link" />
-                <span>Store Data</span>
+                <img src="../assets/icons/link.svg" alt="link" />
+                <span>Share Data</span>
               </div>
               <div>
                 <img src="../assets/icons/angle_right.svg" alt="angle_right" />

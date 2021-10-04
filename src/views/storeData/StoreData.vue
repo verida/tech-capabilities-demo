@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="content">
-      <content-display title="Send Message" />
+      <content-display title="Store Data" />
       <code-example :code="codeDemo" />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
 
@@ -32,7 +32,7 @@ import { codeDemo } from "./data";
 import $store from "@/store";
 
 export default Vue.extend({
-  name: "Send Message",
+  name: "StoreData",
   components: {
     ContentDisplay,
     CodeExample,

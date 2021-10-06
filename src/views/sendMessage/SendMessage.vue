@@ -2,7 +2,6 @@
   <div>
     <div class="content">
       <content-display :fileContent="fileContent" title="Send Message" />
-      <code-example :code="codeDemo" :descriptionContent="description" />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
 
       <iframe
@@ -27,19 +26,15 @@
 import Vue from "vue";
 import marked from "marked";
 import ContentDisplay from "@/components/demoSection/Content.vue";
-import CodeExample from "@/components/demoSection/CodeExample.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
-import { codeDemo } from "./data";
 import $store from "@/store";
 
-import FileContent from "@/docs/send-message/ContentOne.md";
-import DescriptionContent from "@/docs/send-message/ContentTwo.md";
+import FileContent from "@/docs/send-message/content.md";
 
 export default Vue.extend({
   name: "Send Message",
   components: {
     ContentDisplay,
-    CodeExample,
     ExploreDemo,
   },
   data() {
@@ -47,14 +42,11 @@ export default Vue.extend({
       loading: false,
       showCode: true,
       fileContent: null,
-      description: null,
-      codeDemo,
     };
   },
   methods: {
     getContent() {
       this.fileContent = marked(FileContent, { sanitize: true });
-      this.description = marked(DescriptionContent, { sanitize: true });
     },
   },
   created() {

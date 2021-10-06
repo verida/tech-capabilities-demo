@@ -3,7 +3,7 @@
     <div class="content">
       <content-display
         :fileContent="fileContent"
-        title="Store Schemaless Data"
+        title="Request and Respond Data"
       />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
       <iframe
@@ -26,15 +26,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import marked from "marked";
 import ContentDisplay from "@/components/demoSection/Content.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
 
-import FileContent from "@/docs/store-schemaless-data/content.md";
 import $store from "@/store";
 
 export default Vue.extend({
-  name: "Schemaless Data",
+  name: "Request Data",
   components: {
     ContentDisplay,
     ExploreDemo,
@@ -46,14 +44,8 @@ export default Vue.extend({
       fileContent: null,
     };
   },
-  methods: {
-    getContent() {
-      this.fileContent = marked(FileContent, { sanitize: true });
-    },
-  },
-  created() {
-    this.getContent();
-  },
+  methods: {},
+
   beforeRouteEnter(to, from, next) {
     next(() => {
       $store.commit("demoDisplay", {

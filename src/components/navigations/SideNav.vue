@@ -71,7 +71,7 @@
       </router-link>
       <router-link
         class="router-link"
-        to="/request-data-repsond"
+        to="/request-data-respond"
         v-slot="{ href, navigate, isActive }"
         custom
       >
@@ -82,6 +82,22 @@
             :class="[isActive ? 'router-link-active' : 'text-white']"
             @click="navigate"
             >Request Data & Respond</a
+          >
+        </li>
+      </router-link>
+      <router-link
+        class="router-link"
+        to="/share-data"
+        v-slot="{ href, navigate, isActive }"
+        custom
+      >
+        <li class="li">
+          <img src="../../assets/icons/Share.svg" alt="sahre" />
+          <a
+            :href="href"
+            :class="[isActive ? 'router-link-active' : 'text-white']"
+            @click="navigate"
+            >Share Data</a
           >
         </li>
       </router-link>

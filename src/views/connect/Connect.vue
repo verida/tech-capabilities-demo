@@ -2,7 +2,6 @@
   <div>
     <div class="content">
       <content-display title="Connect" :fileContent="fileContent" />
-      <code-example :code="codeDemo" :descriptionContent="descriptionContent" />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
       <iframe
         src="https://codesandbox.io/embed/charming-snowflake-m6ypg?fontsize=14&hidenavigation=1&module=%2Fsrc%2FconnectVault.js&theme=dark"
@@ -24,21 +23,18 @@
 
 <script lang="ts">
 import Vue from "vue";
+import hljs from "highlight.js";
 import marked from "marked";
 import ContentDisplay from "@/components/demoSection/Content.vue";
-import CodeExample from "@/components/demoSection/CodeExample.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
-import { connectCodeTemplate as codeDemo } from "./data";
 import $store from "@/store";
 
-import FileContent from "@/docs/connect/ContentOne.md";
-import DescriptionContent from "@/docs/connect/ContentTwo.md";
+import FileContent from "@/docs/connect/content.md";
 
 export default Vue.extend({
   name: "ContentSection",
   components: {
     ContentDisplay,
-    CodeExample,
     ExploreDemo,
   },
   data() {
@@ -46,14 +42,17 @@ export default Vue.extend({
       loading: false,
       showCode: true,
       fileContent: null,
-      descriptionContent: null,
-      codeDemo,
     };
   },
   methods: {
     getContent() {
-      this.fileContent = marked(FileContent, { sanitize: true });
-      this.descriptionContent = marked(DescriptionContent, { sanitize: true });
+      marked.setOptions({
+        highlight: function (code: any) {
+          console.log(code);
+          return hljs.highlightAuto(code).value;
+        },
+      });
+      this.fileContent = marked(FileContent);
     },
   },
   created() {

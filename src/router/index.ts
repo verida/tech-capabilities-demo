@@ -30,6 +30,16 @@ const routes: Array<RouteConfig> = [
     name: "Store Data ",
     component: () => import("../views/storeData/StoreData.vue"),
   },
+  {
+    name: "Share Data",
+    path: "/share-data",
+    component: () => import("../views/shareData/ShareData.vue"),
+  },
+  {
+    name: "Request Data",
+    path: "/request-data-respond",
+    component: () => import("../views/requestData/RequestData.vue"),
+  },
 ];
 
 const router = new VueRouter({

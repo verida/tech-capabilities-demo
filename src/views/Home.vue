@@ -15,9 +15,7 @@
               <a
                 :href="href"
                 :class="[
-                  isActive
-                    ? 'router-link-active'
-                    : 'hero-content-demo-list text-decoration-none text-white ',
+                  'hero-content-demo-list text-decoration-none text-white ',
                 ]"
                 @click="navigate"
               >
@@ -44,9 +42,7 @@
               <a
                 :href="href"
                 :class="[
-                  isActive
-                    ? 'router-link-active'
-                    : 'hero-content-demo-list text-decoration-none text-white ',
+                  'hero-content-demo-list text-decoration-none text-white ',
                 ]"
                 @click="navigate"
               >
@@ -73,9 +69,7 @@
               <a
                 :href="href"
                 :class="[
-                  isActive
-                    ? 'router-link-active'
-                    : 'hero-content-demo-list text-decoration-none text-white ',
+                  'hero-content-demo-list text-decoration-none text-white ',
                 ]"
                 @click="navigate"
               >
@@ -102,9 +96,7 @@
               <a
                 :href="href"
                 :class="[
-                  isActive
-                    ? 'router-link-active'
-                    : 'hero-content-demo-list text-decoration-none text-white ',
+                  'hero-content-demo-list text-decoration-none text-white ',
                 ]"
                 @click="navigate"
               >
@@ -122,26 +114,58 @@
             </router-link>
           </div>
           <div class="col-6">
-            <div class="hero-content-demo-list">
-              <div class="d-flex">
-                <img src="../assets/icons/link.svg" alt="link" />
-                <span>Share Data</span>
-              </div>
-              <div>
-                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
-              </div>
-            </div>
+            <router-link
+              class="router-link"
+              to="/share-data"
+              v-slot="{ href, navigate }"
+              custom
+            >
+              <a
+                :href="href"
+                :class="[
+                  'hero-content-demo-list text-decoration-none text-white ',
+                ]"
+                @click="navigate"
+              >
+                <div class="d-flex">
+                  <img src="../assets/icons/link.svg" alt="link" />
+                  <span>Share Data</span>
+                </div>
+                <div>
+                  <img
+                    src="../assets/icons/angle_right.svg"
+                    alt="angle_right"
+                  />
+                </div>
+              </a>
+            </router-link>
           </div>
           <div class="col-6">
-            <div class="hero-content-demo-list">
-              <div class="d-flex">
-                <img src="../assets/icons/pull_request.svg" alt="link" />
-                <span>Request Data & Respond</span>
-              </div>
-              <div>
-                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
-              </div>
-            </div>
+            <router-link
+              class="router-link"
+              to="/request-data-respond"
+              v-slot="{ href, navigate }"
+              custom
+            >
+              <a
+                :href="href"
+                :class="[
+                  'hero-content-demo-list text-decoration-none text-white ',
+                ]"
+                @click="navigate"
+              >
+                <div class="d-flex">
+                  <img src="../assets/icons/pull_request.svg" alt="link" />
+                  <span>Request Data & Respond</span>
+                </div>
+                <div>
+                  <img
+                    src="../assets/icons/angle_right.svg"
+                    alt="angle_right"
+                  />
+                </div>
+              </a>
+            </router-link>
           </div>
         </div>
       </div>

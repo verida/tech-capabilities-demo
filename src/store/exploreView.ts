@@ -18,8 +18,12 @@ export const demoViews = [
     link: "/store-data",
   },
   {
-    name: "Request Data & Respond",
-    link: "/request-data-repsond",
+    name: "Request Data",
+    link: "/request-data-respond",
+  },
+  {
+    name: "Share Data",
+    link: "/share-data",
   },
 ];
 

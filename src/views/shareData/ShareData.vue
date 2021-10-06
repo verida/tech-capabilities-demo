@@ -1,10 +1,7 @@
 <template>
   <div>
     <div class="content">
-      <content-display
-        :fileContent="fileContent"
-        title="Store Schemaless Data"
-      />
+      <content-display :fileContent="fileContent" title="Share Data" />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
       <iframe
         src="https://codesandbox.io/embed/store-schema-less-data-u0odj?fontsize=14&hidenavigation=1&module=%2Fsrc%2FmessagingApi.js&theme=dark"
@@ -26,15 +23,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import marked from "marked";
 import ContentDisplay from "@/components/demoSection/Content.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
 
-import FileContent from "@/docs/store-schemaless-data/content.md";
 import $store from "@/store";
 
 export default Vue.extend({
-  name: "Schemaless Data",
+  name: "Share Data",
   components: {
     ContentDisplay,
     ExploreDemo,
@@ -46,16 +41,12 @@ export default Vue.extend({
       fileContent: null,
     };
   },
-  methods: {
-    getContent() {
-      this.fileContent = marked(FileContent, { sanitize: true });
-    },
-  },
-  created() {
-    this.getContent();
-  },
+  methods: {},
+
   beforeRouteEnter(to, from, next) {
     next(() => {
+      console.log(to, from);
+
       $store.commit("demoDisplay", {
         currentPath: to,
         prevPath: from,

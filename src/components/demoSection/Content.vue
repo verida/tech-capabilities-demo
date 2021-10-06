@@ -3,9 +3,6 @@
     <div class="content">
       <h1 class="text-primary">{{ title }}</h1>
       <div class="text-body" v-html="fileContent"></div>
-      <div class="content-image text-center mb-4">
-        <img class="img-fluid" src="../../assets/images/carousel.png" alt="" />
-      </div>
     </div>
   </div>
 </template>
@@ -41,7 +38,8 @@ export default Vue.extend({
     font-weight: 300;
     font-size: 18px;
     letter-spacing: -0.03em;
-    color: #b8b8b8 !important;
+    // color: #fff !important;
+    // background: white;
   }
 }
 </style>

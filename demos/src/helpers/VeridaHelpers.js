@@ -144,6 +144,21 @@ class VeridaHelpers extends EventEmitter {
     }
   }
 
+  async requestUserData(did) {
+    const type = "inbox/type/dataRequest";
+    const data = {
+      requestSchema: "https://schemas.verida.io/social/contact/schema.json",
+      filter: {},
+      userSelect: true,
+    };
+    const message = "Please share your contact details";
+    const config = {
+      recipientContextName: "Verida: Vault",
+    };
+    const messaging = await this.context.getMessaging();
+    await messaging.send(did, type, data, message, config);
+  }
+
   handleErrors(error) {
     this.error = error;
     this.emit("error", error);

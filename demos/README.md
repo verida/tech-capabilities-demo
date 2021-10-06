@@ -4,4 +4,6 @@
 
 2. Send Message
 
-3. Store Schemaless Data
+3. Store Schema-less Data
+
+4. Request User Data

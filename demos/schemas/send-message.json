@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "/schemas/schema.json",
+    "name": "/schemas/",
+    "title": "send-message-demo",
+    "titlePlural": "send-message-demo",
+    "description": "send-message-demo",
+    "type": "object",
+    "database": {
+        "name": "credential_issuer",
+        "indexes": {
+            "text": ["text"]
+        }
+    },
+    "appearance": {
+        "style": {
+            "color": "#FF886E",
+            "icon": ""
+        }
+    },
+    "layouts": {
+        "create": [
+           "text"
+        ],
+        "view": [
+            "text"
+        ]
+    },
+    "allOf": [
+        {"$ref": "https://schemas.verida.io/base/schema.json"},
+        {
+            "properties": {
+                "text": {
+                    "title": "text",
+                    "type": "string"
+                }
+               
+            },
+            "required": ["text"]
+        }
+    ]
+  }

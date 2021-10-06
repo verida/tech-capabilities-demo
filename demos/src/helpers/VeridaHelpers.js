@@ -10,7 +10,8 @@ const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
 const CONTEXT_NAME = "Verida: Connect Demo";
 const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
 
-const TEST_DATASTORE_SCHEMA = "https://8igsn.csb.app/schemas/schema.json";
+const TEST_DATASTORE_SCHEMA = "https://8igsn.csb.app/schemas/store-data.json";
+const TEST_MESSAGE_SCHEMA = "https://8igsn.csb.app/schemas/send-message.json";
 
 class VeridaHelpers extends EventEmitter {
   context = {};
@@ -118,21 +119,26 @@ class VeridaHelpers extends EventEmitter {
     return localData;
   }
 
-  async sendMessage(messageData) {
+  async sendMessage(message) {
     const type = "inbox/type/dataSend";
     try {
       // Generate an inbox message containing an array of data
       const data = {
-        data: [messageData],
+        data: [
+          {
+            text: message,
+            schema: TEST_MESSAGE_SCHEMA,
+          },
+        ],
       };
 
-      const message = "New Message: " + data.data[0].title;
+      const messageTitle = "New Message";
       const config = {
         recipientContextName: "Verida: Vault",
       };
 
       const messaging = await this.context.getMessaging();
-      await messaging.send(this.did, type, data, message, config);
+      await messaging.send(this.did, type, data, messageTitle, config);
     } catch (error) {
       console.log("messager error", { error });
     }

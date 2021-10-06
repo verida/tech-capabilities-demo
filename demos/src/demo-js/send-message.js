@@ -76,11 +76,8 @@ export const SendMessage = () => {
 
     createElement(".form-modal").style.display = "none";
     createElement(".waiting-to-connect").style.display = "block";
-    const messageData = {
-      description: descData,
-    };
 
-    await VeridaHelpers.sendMessage(messageData);
+    await VeridaHelpers.sendMessage(descData);
     createElement(".waiting-to-connect").style.display = "none";
     createElement(".message-status ").style.display = "flex";
   };

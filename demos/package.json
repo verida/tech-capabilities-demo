@@ -8,9 +8,9 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "@verida/client-ts": "1.0.1",
     "@babel/plugin-proposal-class-properties": "7.14.5",
-    "@verida/account-web-vault": "1.0.2",
+    "@verida/account-web-vault": "^1.0.3",
+    "@verida/client-ts": "^1.0.4",
     "parcel-bundler": "^1.6.1"
   },
   "devDependencies": {

@@ -23,7 +23,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import hljs from "highlight.js";
 import marked from "marked";
 import ContentDisplay from "@/components/demoSection/Content.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
@@ -46,12 +45,6 @@ export default Vue.extend({
   },
   methods: {
     getContent() {
-      marked.setOptions({
-        highlight: function (code: any) {
-          console.log(code);
-          return hljs.highlightAuto(code).value;
-        },
-      });
       this.fileContent = marked(FileContent);
     },
   },

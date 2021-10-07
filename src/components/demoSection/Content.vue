@@ -38,8 +38,8 @@ export default Vue.extend({
     font-weight: 300;
     font-size: 18px;
     letter-spacing: -0.03em;
-    // color: #fff !important;
-    // background: white;
+    color: #b8b8b8 !important;
+    // background: #333764;
   }
 }
 </style>

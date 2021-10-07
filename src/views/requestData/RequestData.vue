@@ -26,9 +26,10 @@
 
 <script lang="ts">
 import Vue from "vue";
+import marked from "marked";
 import ContentDisplay from "@/components/demoSection/Content.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
-
+import FileContent from "@/docs/connect/content.md";
 import $store from "@/store";
 
 export default Vue.extend({
@@ -44,7 +45,14 @@ export default Vue.extend({
       fileContent: null,
     };
   },
-  methods: {},
+  methods: {
+    getContent() {
+      this.fileContent = marked(FileContent, { sanitize: true });
+    },
+  },
+  created() {
+    this.getContent();
+  },
 
   beforeRouteEnter(to, from, next) {
     next(() => {

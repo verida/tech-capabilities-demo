@@ -1,2 +1,2 @@
 import "./bootstrap-vue";
-import "./vue-resources";
+import "./markdown";

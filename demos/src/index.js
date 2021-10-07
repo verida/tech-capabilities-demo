@@ -1,6 +1,7 @@
 import { Router } from "./router";
 import {
   Connect,
+  ShareData,
   SendMessage,
   RequestData,
   StoreSchemalessData,
@@ -14,6 +15,7 @@ function main() {
     { url: "", render: Connect },
     { url: "send-message", render: SendMessage },
     { url: "request-data", render: RequestData },
+    { url: "share-data", render: ShareData },
     { url: "store-schemaless-data", render: StoreSchemalessData },
     { url: "store-data", render: StoreDataWithSchema },
   ];

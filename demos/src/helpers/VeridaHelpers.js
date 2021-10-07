@@ -20,7 +20,7 @@ class VeridaHelpers extends EventEmitter {
   did = "";
   error = {};
   profile = {};
-  schemalessDb = {};
+  database = {};
   dataStore = {};
 
   /**
@@ -66,7 +66,7 @@ class VeridaHelpers extends EventEmitter {
 
     this.emit("initialized");
 
-    this.schemalessDb = await this.context.openDatabase("test_db");
+    this.database = await this.context.openDatabase("test_db");
     this.dataStore = await this.context.openDatastore(TEST_DATASTORE_SCHEMA);
   }
 
@@ -93,28 +93,26 @@ class VeridaHelpers extends EventEmitter {
   }
 
   async saveInDatabase(data) {
-    await this.schemalessDb.save(data);
+    await this.database.save(data);
     return true;
   }
 
   async saveInDataStore(data) {
-    const res = await this.dataStore.save(data);
-    console.log(data, res);
-
+    await this.dataStore.save(data);
     return true;
   }
 
   async getEncryptedData() {
-    const items = await this.schemalessDb.getMany();
+    const items = await this.database.getMany();
     const item = items.slice(-1)[0];
-    const remoteData = await this.db._remoteDbEncrypted.get(item._id);
+    const remoteData = await this.database._remoteDbEncrypted.get(item._id);
     return remoteData;
   }
 
   async getDecryptedData() {
-    const items = await this.schemalessDb.getMany();
+    const items = await this.database.getMany();
     const item = items.slice(-1)[0];
-    const localData = await this.schemalessDb._localDb.get(item._id);
+    const localData = await this.database._localDb.get(item._id);
 
     return localData;
   }
@@ -170,7 +168,7 @@ class VeridaHelpers extends EventEmitter {
     this.profileInstance = null;
     this.account = null;
     this.did = "";
-    this.schemalessDb = "";
+    this.database = "";
     this.error = {};
     this.profile = {};
   }

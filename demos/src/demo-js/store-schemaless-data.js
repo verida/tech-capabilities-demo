@@ -8,8 +8,7 @@ export const StoreSchemalessData = () => {
   <div>
     <form class="form-modal">
         <span id="message"> </span>
-        <textarea  class="desc-text">
-        </textarea/>
+        <textarea class="desc-text"></textarea/>
         <button  type="submit" class="send-message">
           <img class="btn-image" src=${messageIcon} alt="connect" />
           <span>Save Data </span>

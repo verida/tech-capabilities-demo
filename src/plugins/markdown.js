@@ -3,7 +3,7 @@ import hljs from "highlight.js";
 
 import "highlight.js/styles/atom-one-dark.css";
 
-marked.setOptions({
+marked.default.setOptions({
   renderer: new marked.Renderer(),
   highlight: function (code) {
     return hljs.highlightAuto(code).value;

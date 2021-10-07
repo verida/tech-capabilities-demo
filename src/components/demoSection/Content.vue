@@ -2,17 +2,23 @@
   <div>
     <div class="content">
       <h1 class="text-primary">{{ title }}</h1>
-      <div class="text-body" v-html="fileContent"></div>
+      <div class="text-body" v-html="content"></div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import marked from "marked";
 
 export default Vue.extend({
   name: "ContentSection",
   components: {},
+  data() {
+    return {
+      content: null,
+    };
+  },
   props: {
     title: {
       type: String,
@@ -22,6 +28,9 @@ export default Vue.extend({
       type: String,
       default: "",
     },
+  },
+  created() {
+    this.content = marked.parse(this.fileContent);
   },
 });
 </script>

@@ -25,6 +25,7 @@
 import Vue from "vue";
 import ContentDisplay from "@/components/demoSection/Content.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
+import FileContent from "@/docs/share-data/content.md";
 
 import $store from "@/store";
 
@@ -38,10 +39,9 @@ export default Vue.extend({
     return {
       loading: false,
       showCode: true,
-      fileContent: null,
+      fileContent: FileContent,
     };
   },
-  methods: {},
 
   beforeRouteEnter(to, from, next) {
     next(() => {

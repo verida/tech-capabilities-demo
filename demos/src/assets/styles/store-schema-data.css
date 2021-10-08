@@ -1,0 +1,160 @@
+.error {
+  color: red;
+}
+
+.message-status {
+  display: none;
+  /* display: flex; */
+  margin: auto;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.message-status h3 {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #041133;
+  margin: 1.5rem 0;
+}
+
+.message-status button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 32px;
+  height: 52px;
+  border: 1px solid #888888;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.form-fields {
+  display: none;
+  max-width: 880px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.form-fields-input {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-fields input {
+  padding: 0.8rem 1rem;
+  width: 100%;
+  height: 3rem;
+  background: #f7f8f9;
+  border: 1px solid #e6e8eb;
+  box-sizing: border-box;
+  border-radius: 0.4rem;
+}
+
+.form-fields div {
+  margin: 8px 0.7rem;
+}
+
+.form-fields label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.03em;
+  color: #414141;
+}
+
+form .form-fields-input .email-id {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+}
+
+.form-fields .send-message {
+  display: flex;
+  align-items: center;
+  padding: 8px 48px;
+  height: 52px;
+  background: #423bce;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.form-input-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-btn button {
+  display: flex;
+  align-items: center;
+  padding: 8px 48px;
+  position: absolute;
+  height: 52px;
+  left: calc(50% - 193px / 2 + 0.5px);
+  top: 50%;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-image {
+  margin: -0.3rem 0.6rem;
+}
+
+.action-btn .connect {
+  /* display: none; */
+  background: #423bce;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10rem auto 0 auto;
+}
+
+.loading div {
+  width: 0.6rem;
+  height: 3rem;
+  margin: 2rem 0.3rem;
+  background: black;
+  animation: 0.9s bounce infinite alternate;
+}
+
+.loading div:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loading div:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.waiting-to-connect {
+  display: none;
+}
+
+p {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #888888;
+}
+
+@keyframes bounce {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}

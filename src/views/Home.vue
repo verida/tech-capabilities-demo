@@ -6,70 +6,166 @@
         <span>Check out our demos to find out about our capabilities</span>
         <div class="hero-content-demo row">
           <div class="col-6">
-            <a href="/connect" class="hero-content-demo-list">
-              <div class="d-flex">
-                <img src="../assets/icons/link.svg" alt="link" />
-                <span>Connect</span>
-              </div>
-              <div>
-                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
-              </div>
-            </a>
+            <router-link
+              class="router-link"
+              to="/connect"
+              v-slot="{ href, navigate }"
+              custom
+            >
+              <a
+                :href="href"
+                :class="[
+                  'hero-content-demo-list text-decoration-none text-white ',
+                ]"
+                @click="navigate"
+              >
+                <div class="d-flex justify-content-center">
+                  <img src="../assets/icons/link.svg" alt="link" />
+                  <span>Connect</span>
+                </div>
+                <div>
+                  <img
+                    src="../assets/icons/angle_right.svg"
+                    alt="angle_right"
+                  />
+                </div>
+              </a>
+            </router-link>
           </div>
           <div class="col-6">
-            <div class="hero-content-demo-list">
-              <div class="d-flex">
-                <img src="../assets/icons/Tree.svg" alt="link" />
-                <span>Store Data using Schema</span>
-              </div>
-              <div>
-                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
-              </div>
-            </div>
+            <router-link
+              class="router-link"
+              to="/schemaless-data"
+              v-slot="{ href, navigate }"
+              custom
+            >
+              <a
+                :href="href"
+                :class="[
+                  'hero-content-demo-list text-decoration-none text-white ',
+                ]"
+                @click="navigate"
+              >
+                <div class="d-flex justify-content-center">
+                  <img src="../assets/icons/Tree.svg" alt="link" />
+                  <span>Store Schemaless Data</span>
+                </div>
+                <div>
+                  <img
+                    src="../assets/icons/angle_right.svg"
+                    alt="angle_right"
+                  />
+                </div>
+              </a>
+            </router-link>
           </div>
           <div class="col-6">
-            <div class="hero-content-demo-list">
-              <div class="d-flex">
-                <img src="../assets/icons/Share.svg" alt="link" />
-                <span>Send Message</span>
-              </div>
-              <div>
-                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
-              </div>
-            </div>
+            <router-link
+              class="router-link"
+              to="/send-message"
+              v-slot="{ href, navigate }"
+              custom
+            >
+              <a
+                :href="href"
+                :class="[
+                  'hero-content-demo-list text-decoration-none text-white ',
+                ]"
+                @click="navigate"
+              >
+                <div class="d-flex">
+                  <img src="../assets/icons/Share.svg" alt="link" />
+                  <span>Send Message</span>
+                </div>
+                <div>
+                  <img
+                    src="../assets/icons/angle_right.svg"
+                    alt="angle_right"
+                  />
+                </div>
+              </a>
+            </router-link>
           </div>
           <div class="col-6">
-            <div class="hero-content-demo-list">
-              <div class="d-flex">
-                <img src="../assets/icons/link.svg" alt="link" />
-                <span>Share Data</span>
-              </div>
-              <div>
-                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
-              </div>
-            </div>
+            <router-link
+              class="router-link"
+              to="/store-data"
+              v-slot="{ href, navigate }"
+              custom
+            >
+              <a
+                :href="href"
+                :class="[
+                  'hero-content-demo-list text-decoration-none text-white ',
+                ]"
+                @click="navigate"
+              >
+                <div class="d-flex">
+                  <img src="../assets/icons/Database.svg" alt="link" />
+                  <span>Store Data</span>
+                </div>
+                <div>
+                  <img
+                    src="../assets/icons/angle_right.svg"
+                    alt="angle_right"
+                  />
+                </div>
+              </a>
+            </router-link>
           </div>
           <div class="col-6">
-            <div class="hero-content-demo-list">
-              <div class="d-flex">
-                <img src="../assets/icons/Database.svg" alt="link" />
-                <span>Store Data</span>
-              </div>
-              <div>
-                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
-              </div>
-            </div>
+            <router-link
+              class="router-link"
+              to="/share-data"
+              v-slot="{ href, navigate }"
+              custom
+            >
+              <a
+                :href="href"
+                :class="[
+                  'hero-content-demo-list text-decoration-none text-white ',
+                ]"
+                @click="navigate"
+              >
+                <div class="d-flex">
+                  <img src="../assets/icons/link.svg" alt="link" />
+                  <span>Share Data</span>
+                </div>
+                <div>
+                  <img
+                    src="../assets/icons/angle_right.svg"
+                    alt="angle_right"
+                  />
+                </div>
+              </a>
+            </router-link>
           </div>
           <div class="col-6">
-            <div class="hero-content-demo-list">
-              <div class="d-flex">
-                <img src="../assets/icons/pull_request.svg" alt="link" />
-                <span>Request Data & Respond</span>
-              </div>
-              <div>
-                <img src="../assets/icons/angle_right.svg" alt="angle_right" />
-              </div>
-            </div>
+            <router-link
+              class="router-link"
+              to="/request-data-respond"
+              v-slot="{ href, navigate }"
+              custom
+            >
+              <a
+                :href="href"
+                :class="[
+                  'hero-content-demo-list text-decoration-none text-white ',
+                ]"
+                @click="navigate"
+              >
+                <div class="d-flex">
+                  <img src="../assets/icons/pull_request.svg" alt="link" />
+                  <span>Request Data & Respond</span>
+                </div>
+                <div>
+                  <img
+                    src="../assets/icons/angle_right.svg"
+                    alt="angle_right"
+                  />
+                </div>
+              </a>
+            </router-link>
           </div>
         </div>
       </div>
@@ -113,15 +209,10 @@ export default Vue.extend({
         justify-content: space-between;
         align-items: center;
         padding: 0px 20px 0px 18px;
-        // width: 384px;
         height: 64px;
-        /* Dark Blue 80 */
         background: #11132c;
-        /* Dark Blue 60 */
-
         border: 1px solid #1d1f40;
         box-sizing: border-box;
-        /* box shadow */
         box-shadow: 0px 4px 25px rgba(65, 65, 65, 0.4);
         border-radius: $border-radius;
         span {

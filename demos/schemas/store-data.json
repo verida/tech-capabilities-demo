@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/schemas/schema.json",
+  "name": "/schemas/",
+  "title": "Schema Data",
+  "titlePlural": "Schema Data",
+  "description": "Example with schema data",
+  "type": "object",
+  "database": {
+    "name": "example_schema_data",
+    "indexes": {
+      "firstName": ["firstName"],
+      "lstName": ["lastName"],
+      "insertedAt": ["insertedAt"]
+    }
+  },
+  "appearance": {
+    "style": {
+      "color": "#FF886E",
+      "icon": ""
+    }
+  },
+  "layouts": {
+    "create": ["email", "firstName", "lastName"],
+    "view": ["email", "firstName", "lastName"]
+  },
+  "allOf": [
+    { "$ref": "https://schemas.verida.io/base/schema.json" },
+    {
+      "properties": {
+        "email": {
+          "title": "email",
+          "type": "string"
+        },
+        "firstName": {
+          "title": "First Name",
+          "type": "string"
+        },
+        "lastName": {
+          "title": "Last Name",
+          "type": "string"
+        }
+      },
+      "required": ["email", "firstName", "lastName"]
+    }
+  ]
+}

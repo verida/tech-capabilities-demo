@@ -16,9 +16,29 @@ const routes: Array<RouteConfig> = [
     component: () => import("../views/connect/Connect.vue"),
   },
   {
-    path: "/SendMessage",
-    name: "SendMessage",
-    component: () => import("../views/SendMessage.vue"),
+    path: "/send-message",
+    name: "Send Message",
+    component: () => import("../views/sendMessage/SendMessage.vue"),
+  },
+  {
+    path: "/schemaless-data",
+    name: "Store Schemaless Data",
+    component: () => import("../views/schemalessData/SchemalessData.vue"),
+  },
+  {
+    path: "/store-data",
+    name: "Store Data ",
+    component: () => import("../views/storeData/StoreData.vue"),
+  },
+  {
+    name: "Share Data",
+    path: "/share-data",
+    component: () => import("../views/shareData/ShareData.vue"),
+  },
+  {
+    name: "Request Data",
+    path: "/request-data-respond",
+    component: () => import("../views/requestData/RequestData.vue"),
   },
 ];
 

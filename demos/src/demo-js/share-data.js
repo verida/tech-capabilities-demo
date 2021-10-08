@@ -8,7 +8,7 @@ export const ShareData = () => {
  <div>
     <div class="message-status">
       <img class="btn-image" src=${statusIcon} alt="connect" />
-      <h3>Message sent</h3>
+      <h3>Stored Data has been shared please open your vault </h3>
     </div>
     <div class="waiting-to-connect">
         <div class="loading">

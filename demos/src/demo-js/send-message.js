@@ -3,20 +3,19 @@ import messageIcon from "../assets/images/message.png";
 import statusIcon from "../assets/images/status_icon.png";
 import VeridaHelpers from "../helpers/VeridaHelpers";
 
-const TEST_MESSAGE_SCHEMA = "https://4km87.csb.app/schemas/send-message.json";
+const TEST_MESSAGE_SCHEMA = "https://27tqk.csb.app/schemas/send-message.json";
 export const SendMessage = () => {
   document.getElementById("app").innerHTML = `
  <div>
    <form class="form-modal">
    <span id="message"> </span>
    <input disabled class="title-text" required type="text" placeholder="Enter User did (e.g: did:3:kjzl6cwe...)" />
-    <textarea class="desc-text" required col="10" row="7">
-    </textarea/>
+    <textarea class="desc-text" required col="10" row="7"></textarea/>
     <div class="form-action">
       <div class="form-action-buttons">
         <a href="##">
         Clear
-        </a>
+        </a> 
         <button>
         Retrieve Encrypted
         </button>

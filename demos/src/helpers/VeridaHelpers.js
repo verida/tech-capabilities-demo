@@ -10,11 +10,10 @@ const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
 const CONTEXT_NAME = "Verida: Tech Capabilities Demo";
 const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
 
-const TEST_DATASTORE_SCHEMA = "https://4km87.csb.app/schemas/store-data.json";
+const TEST_DATASTORE_SCHEMA = "https://27tqk.csb.app/schemas/store-data.json";
 
 class VeridaHelpers extends EventEmitter {
   context = {};
-  profileInstance = {};
   account = null;
   did = "";
   error = {};
@@ -70,25 +69,22 @@ class VeridaHelpers extends EventEmitter {
   }
 
   async initProfile() {
-    const services = this;
-    const client = this.context.getClient();
-    this.profileInstance = await client.openPublicProfile(
-      this.did,
-      "Verida: Vault"
-    );
-
-    const cb = async function () {
-      const data = await services.profileInstance.getMany();
-      services.profile = data.reduce((result, item) => {
-        result[item.key] = item.value;
-        return result;
-      }, {});
-
-      services.emit("profileChanged", services.profile);
-    };
-
-    this.profileInstance.listen(cb);
-    await cb();
+    try {
+      const client = await this.context.getClient();
+      const profile = await client.openPublicProfile(this.did, "Verida: Vault");
+      const cb = async () => {
+        const data = await profile.getMany();
+        this.profile = data.reduce((result, item) => {
+          result[item.key] = item.value;
+          return result;
+        }, {});
+        this.emit("profileChanged", this.profile);
+      };
+      profile.listen(cb);
+      await cb();
+    } catch (error) {
+      console.log("User", { error });
+    }
   }
 
   async saveInDatabase(data) {
@@ -128,6 +124,7 @@ class VeridaHelpers extends EventEmitter {
       const data = {
         data: [message],
       };
+
       const config = {
         recipientContextName: "Verida: Vault",
       };
@@ -135,7 +132,7 @@ class VeridaHelpers extends EventEmitter {
       const res = await messaging.send(this.did, type, data, title, config);
       return res;
     } catch (error) {
-      console.log("messager error", { error });
+      console.log("messenger error", { error });
     }
   }
 
@@ -162,7 +159,6 @@ class VeridaHelpers extends EventEmitter {
   async logout() {
     await this.account.disconnect();
     this.context = null;
-    this.profileInstance = null;
     this.account = null;
     this.did = "";
     this.database = "";

@@ -42,7 +42,7 @@ export const RequestData = () => {
     </div>
       <div class="action-btn">
         <button class="connect" id="connect">
-          <img class="btn-image" src=${messageIcon} alt="connect" /><span>Store Data</span>
+          <img class="btn-image" src=${messageIcon} alt="connect" /><span>Request contact Details</span>
         </button>
       </div>
   </div>
@@ -67,15 +67,19 @@ export const RequestData = () => {
     }
   };
 
-  const saveItem = async (event) => {
-    event.preventDefault();
-    const userDID = createElement("#did").value;
-    createElement(".form-fields").style.display = "none";
+  const requestData = async (event) => {
     createElement(".waiting-to-connect").style.display = "block";
-
-    await VeridaHelpers.requestUserData(userDID);
-    createElement(".waiting-to-connect").style.display = "none";
-    createElement(".message-status ").style.display = "flex";
+    try {
+      event.preventDefault();
+      const userDID = createElement("#did").value;
+      createElement(".form-fields").style.display = "none";
+      await VeridaHelpers.requestUserData(userDID);
+      createElement(".message-status ").style.display = "flex";
+    } catch (error) {
+      console.log({ error });
+    } finally {
+      createElement(".waiting-to-connect").style.display = "none";
+    }
   };
 
   const closeMessage = () => {
@@ -95,7 +99,7 @@ export const RequestData = () => {
 
   createElement(".action-btn .connect").addEventListener("click", connect);
 
-  createElement(".form-fields").addEventListener("submit", saveItem);
+  createElement(".form-fields").addEventListener("submit", requestData);
   createElement(".close-message").addEventListener("click", closeMessage);
 
   window.addEventListener("click", closeModal);

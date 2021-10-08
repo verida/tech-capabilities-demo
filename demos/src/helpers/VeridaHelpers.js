@@ -7,11 +7,10 @@ const LOGO_URL = "http://assets.verida.io/verida_logo.svg";
 
 const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
 
-const CONTEXT_NAME = "Verida: Connect Demo";
+const CONTEXT_NAME = "Verida: Tech Capabilities Demo";
 const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
 
-const TEST_DATASTORE_SCHEMA = "https://8igsn.csb.app/schemas/store-data.json";
-const TEST_MESSAGE_SCHEMA = "https://8igsn.csb.app/schemas/send-message.json";
+const TEST_DATASTORE_SCHEMA = "https://4km87.csb.app/schemas/store-data.json";
 
 class VeridaHelpers extends EventEmitter {
   context = {};
@@ -117,26 +116,24 @@ class VeridaHelpers extends EventEmitter {
     return localData;
   }
 
-  async sendMessage(message) {
+  async getDatastoreItems() {
+    const items = await this.dataStore.getMany();
+    return items;
+  }
+
+  async sendMessage(message, title) {
     const type = "inbox/type/dataSend";
     try {
       // Generate an inbox message containing an array of data
       const data = {
-        data: [
-          {
-            text: message,
-            schema: TEST_MESSAGE_SCHEMA,
-          },
-        ],
+        data: [message],
       };
-
-      const messageTitle = "New Message";
       const config = {
         recipientContextName: "Verida: Vault",
       };
-
       const messaging = await this.context.getMessaging();
-      await messaging.send(this.did, type, data, messageTitle, config);
+      const res = await messaging.send(this.did, type, data, title, config);
+      return res;
     } catch (error) {
       console.log("messager error", { error });
     }

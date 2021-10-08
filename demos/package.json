@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "7.14.5",
-    "@verida/account-web-vault": "^1.0.3",
-    "@verida/client-ts": "^1.0.5",
+    "@verida/account-web-vault": "^1.0.4",
+    "@verida/client-ts": "^1.0.6",
     "parcel-bundler": "^1.6.1"
   },
   "devDependencies": {

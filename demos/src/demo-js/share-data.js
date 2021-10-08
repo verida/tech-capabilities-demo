@@ -6,7 +6,7 @@ import VeridaHelpers from "../helpers/VeridaHelpers";
 export const ShareData = () => {
   document.getElementById("app").innerHTML = `
  <div>
-    <div class="message-sktatus">
+    <div class="message-status">
       <img class="btn-image" src=${statusIcon} alt="connect" />
       <h3>Message sent</h3>
     </div>
@@ -45,7 +45,7 @@ export const ShareData = () => {
       }
       createElement(".action-btn .connect").style.display = "block";
     } catch (error) {
-      console.log({ error });
+      console.log("Error", { error });
       createElement(".action-btn .connect").style.display = "block";
     }
   };

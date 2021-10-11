@@ -45,8 +45,6 @@ export default Vue.extend({
 
   beforeRouteEnter(to, from, next) {
     next(() => {
-      console.log(to, from);
-
       $store.commit("demoDisplay", {
         currentPath: to,
         prevPath: from,

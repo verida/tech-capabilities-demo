@@ -49,7 +49,7 @@
             :href="href"
             :class="[isActive ? 'router-link-active' : 'text-white']"
             @click="navigate"
-            >Store schemaless Data</a
+            >Store Schemaless Data</a
           >
         </li>
       </router-link>
@@ -65,7 +65,7 @@
             :href="href"
             :class="[isActive ? 'router-link-active' : 'text-white']"
             @click="navigate"
-            >Store Data</a
+            >Store Data With Schema</a
           >
         </li>
       </router-link>

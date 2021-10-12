@@ -27,7 +27,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/store-data",
-    name: "Store Data ",
+    name: "Store Data With Schema ",
     component: () => import("../views/storeData/StoreData.vue"),
   },
   {

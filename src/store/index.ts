@@ -12,12 +12,16 @@ export default new Vuex.Store({
   },
   mutations: {
     demoDisplay(state: ExploreViewState, route: IRouteStore<RouteConfig>) {
-      const me = demoViews.findIndex(
+      const currentIndex = demoViews.findIndex(
         (item) => item.link === route.currentPath.path
       );
-      state.demos.next = demoViews.find((_, index) =>
-        me >= demoViews.length ? index === 0 : index === me + 1
-      );
+
+      state.demos.next =
+        demoViews.find((_, index) =>
+          currentIndex >= demoViews.length
+            ? index === 0
+            : index === currentIndex + 1
+        ) || demoViews[0];
 
       if (route.prevPath.path && route.prevPath.path !== "/") {
         state.demos.prev = demoViews.find(

@@ -1,6 +1,5 @@
 import "../assets/styles/connect.css";
-// import linkIcon from "./assets/images/link.png";
-import unlinkIcon from "../assets/images/Unlink.png";
+import unlinkIcon from "../assets/images/unlink.png";
 import VeridaHelpers from "../helpers/VeridaHelpers";
 
 export const Connect = () => {
@@ -53,6 +52,8 @@ export const Connect = () => {
       createElement(".disconnect").style.display = "block";
       createElement(".waiting-to-connect").style.display = "none";
     } catch (error) {
+      console.log({ error });
+
       createElement(".action-btn .connect").style.display = "block";
     }
   };

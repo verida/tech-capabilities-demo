@@ -5,7 +5,7 @@
         <h1>Verida Tech Capabilities</h1>
         <span>Check out our demos to find out about our capabilities</span>
         <div class="hero-content-demo row">
-          <div class="col-6">
+          <div class="col-6 sm-col-12">
             <router-link
               class="router-link"
               to="/connect"
@@ -32,7 +32,7 @@
               </a>
             </router-link>
           </div>
-          <div class="col-6">
+          <div class="col-6 sm-col-12">
             <router-link
               class="router-link"
               to="/schemaless-data"
@@ -59,7 +59,7 @@
               </a>
             </router-link>
           </div>
-          <div class="col-6">
+          <div class="col-6 sm-col-12">
             <router-link
               class="router-link"
               to="/send-message"
@@ -86,7 +86,7 @@
               </a>
             </router-link>
           </div>
-          <div class="col-6">
+          <div class="col-6 sm-col-12">
             <router-link
               class="router-link"
               to="/store-data"
@@ -102,7 +102,7 @@
               >
                 <div class="d-flex">
                   <img src="../assets/icons/Database.svg" alt="link" />
-                  <span>Store Data</span>
+                  <span>Store Data With Schema</span>
                 </div>
                 <div>
                   <img
@@ -113,7 +113,7 @@
               </a>
             </router-link>
           </div>
-          <div class="col-6">
+          <div class="col-6 sm-col-12">
             <router-link
               class="router-link"
               to="/share-data"
@@ -140,7 +140,7 @@
               </a>
             </router-link>
           </div>
-          <div class="col-6">
+          <div class="col-6 sm-col-12">
             <router-link
               class="router-link"
               to="/request-data-respond"
@@ -223,6 +223,10 @@ export default Vue.extend({
   }
   .hero-image {
     margin: -2rem -5rem 0 0;
+    display: none;
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 }
 </style>

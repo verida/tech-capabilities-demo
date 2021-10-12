@@ -14,7 +14,7 @@ export const demoViews = [
     link: "/send-message",
   },
   {
-    name: "Store Data",
+    name: "Store Data With Schema",
     link: "/store-data",
   },
   {

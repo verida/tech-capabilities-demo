@@ -19,24 +19,36 @@ Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi vestibulu
 ---
 
 ```tsx
-const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
-const CONTEXT_NAME = "Verida: Sandbox Demo";
-const account = new window.VaultAccount({
-  defaultDatabaseServer: {
-    type: "VeridaDatabase",
-    endpointUri: "https://db.testnet.verida.io:5002/",
-  },
-  defaultMessageServer: {
-    type: "VeridaMessage",
-    endpointUri: "https://db.testnet.verida.io:5002/",
-  },
-});
-const context = await window.Network.connect({
-  client: { ceramicUrl: CERAMIC_URL },
-  account: account,
-  context: { name: CONTEXT_NAME },
-});
-const did = await;
-account.did();
-console.log("User is connected with DID: " + did);
+import { Network } from "@verida/client-ts";
+import { VaultAccount } from "@verida/account-web-vault";
+
+class VeridaHelpers extends EventEmitter {
+  async sendMessage(message, title) {
+    const type = "inbox/type/dataSend";
+    try {
+      const data = {
+        data: [message],
+      };
+
+      const config = {
+        recipientContextName: "Verida: Vault",
+      };
+      const messaging = await this.context.getMessaging();
+      const response = await messaging.send(
+        this.did,
+        type,
+        data,
+        title,
+        config
+      );
+      return response;
+    } catch (error) {
+      console.log("messenger error", { error });
+    }
+  }
+}
+
+const veridaHelpers = new VeridaHelpers();
+
+export default veridaHelpers;
 ```

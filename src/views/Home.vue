@@ -113,7 +113,7 @@
               </a>
             </router-link>
           </div>
-          <div class="col-6 sm-col-12">
+          <!-- <div class="col-6 sm-col-12">
             <router-link
               class="router-link"
               to="/share-data"
@@ -139,8 +139,8 @@
                 </div>
               </a>
             </router-link>
-          </div>
-          <div class="col-6 sm-col-12">
+          </div> -->
+          <!-- <div class="col-6 sm-col-12">
             <router-link
               class="router-link"
               to="/request-data-respond"
@@ -166,7 +166,7 @@
                 </div>
               </a>
             </router-link>
-          </div>
+          </div> -->
         </div>
       </div>
       <div clas="hero-image">

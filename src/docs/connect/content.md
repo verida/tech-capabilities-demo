@@ -1,20 +1,56 @@
-Hello new component elit etiam eget dictum nunc elementum auctor urna. Morbi vestibulum, et, nunc, consequat lacus, morbi mattis. Scelerisque in ornare ac lobortis dictum lobortis suspendisse turpis ridiculus. At sollicitudin quam pellentesque cras faucibus.
+---
+title: Connect to the Verida Vault
+description: Learn how you can connect to the Verida Vault using the tech capabilities demo
+verida.author: dickson
+verida.reviewer: nick, michael
+date: 18/10/2021
+topic: how-to
+Customer intent: As a developer, I want to understand how to connect to the Verida Vault
+---
 
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+# Connect to the Verida Vault
 
-Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi vestibulum, et, nunc, consequat lacus, morbi mattis. Scelerisque in ornare ac lobortis dictum lobortis suspendisse turpis ridiculus. At sollicitudin quam pellentesque cras faucibus.
+In this tutorial, you will use the tech capabilities demo to connect to the Verida Vault. Follow this tutorial to:
 
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+> * Get the demo project running on your local dev box
+> * Establish a connection to Verida Vault
+> * Test and reset the connection
+
+## Prerequisites
+
+To initialize a connection with the Verida Vault, you should 
+
+* Get Vue js running on a local web server
+* Install a code editor such as Visual studio code
+
+## How the demo works
+
+This tutorial is based on a scenarion where you use the tech capabilities demo to connect to the Verida Vault. It provides some live code editing feature that you can optionally use to test and run your code. Upon runnning the code, it creates the standard Verida connect modal dialog that prompts you to connect to Verida Vault. 
+
+You will use the Verida Vault on your mobile device to log in and your public profile will be displayed, which indicates successful connection to the Verida Vault. 
+
+## Get the demo running on your local dev box
+
+
+
+
+## Connect to Verida Vault
+
+
+![Login with Verida Vault](./media/vault-login.png)
+
+
+
+## Test and reset the connection
+
+
+![Successful connection ](./media/connected.PNG)
+
+
 
 ## Code example
+
+Below is a sample code on initializing a connection to the Verida Vault.
 
 ---
 
@@ -123,3 +159,8 @@ const veridaHelpers = new VeridaHelpers();
 
 export default veridaHelpers;
 ```
+
+
+## Next steps
+
+* Move on to the next scneario in this tutorial series, [send message](./send-message.md)

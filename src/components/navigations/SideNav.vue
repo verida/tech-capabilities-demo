@@ -69,7 +69,7 @@
           >
         </li>
       </router-link>
-      <router-link
+      <!-- <router-link
         class="router-link"
         to="/request-data-respond"
         v-slot="{ href, navigate, isActive }"
@@ -84,8 +84,8 @@
             >Request Data & Respond</a
           >
         </li>
-      </router-link>
-      <router-link
+      </router-link> -->
+      <!-- <router-link
         class="router-link"
         to="/share-data"
         v-slot="{ href, navigate, isActive }"
@@ -100,7 +100,7 @@
             >Share Data</a
           >
         </li>
-      </router-link>
+      </router-link> -->
     </aside>
   </div>
 </template>

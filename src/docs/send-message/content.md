@@ -13,3 +13,53 @@ Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi vestibulu
 &nbsp;
 &nbsp;
 &nbsp;
+
+```tsx
+import { Network } from "@verida/client-ts";
+import { VaultAccount } from "@verida/account-web-vault";
+
+const EventEmitter = require("events");
+
+const LOGO_URL = "http://assets.verida.io/verida_logo.svg";
+
+const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
+
+const CONTEXT_NAME = "Verida: Tech Capabilities Demo";
+const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
+
+const TEST_DATASTORE_SCHEMA = "https://27tqk.csb.app/schemas/store-data.json";
+
+class VeridaHelpers extends EventEmitter {
+ .....
+
+  async sendMessage(message, title) {
+    const type = "inbox/type/dataSend";
+    try {
+      const data = {
+        data: [message],
+      };
+
+      const config = {
+        recipientContextName: "Verida: Vault",
+      };
+      const messaging = await this.context.getMessaging();
+      const response = await messaging.send(
+        this.did,
+        type,
+        data,
+        title,
+        config
+      );
+      return response;
+    } catch (error) {
+      console.log("messenger error", { error });
+    }
+  }
+
+  ....
+}
+
+const veridaHelpers = new VeridaHelpers();
+
+export default veridaHelpers;
+```

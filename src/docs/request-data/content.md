@@ -23,114 +23,42 @@ Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi vestibulu
 ### Code example
 
 ```ts
-import { AuthClientConfig, AuthResponse } from "./interfaces";
-import EncryptionUtils from "@verida/encryption-utils";
-import QrCode from "qrcode-with-logos";
-const _ = require("lodash");
+import { Network } from "@verida/client-ts";
+import { VaultAccount } from "@verida/account-web-vault";
 
-export default class AuthClient {
-  ws: any;
-  config: any;
-  symKeyBytes: Uint8Array;
-  modal: any;
+const EventEmitter = require("events");
 
-  constructor(config: any, modal: any) {
-    this.config = _.merge(
-      {
-        schemeUri: "veridavault://login-request",
-        loginUri: "https://vault.verida.io/request/",
-        deeplinkId: "verida-auth-client-deeplink",
-        request: {},
-      },
-      config
-    );
-    this.modal = modal;
+const LOGO_URL = "http://assets.verida.io/verida_logo.svg";
 
-    const symKeyBytes = (this.symKeyBytes = EncryptionUtils.randomKey(32));
+const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
 
-    this.ws = new WebSocket(config.serverUri);
-    const client = this;
+const CONTEXT_NAME = "Verida: Tech Capabilities Demo";
+const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
 
-    this.ws.onmessage = function (event: MessageEvent) {
-      client.newMessage(event);
+const TEST_DATASTORE_SCHEMA = "https://27tqk.csb.app/schemas/store-data.json";
+
+class VeridaHelpers extends EventEmitter {
+
+....
+
+  async requestUserData(did) {
+    const type = "inbox/type/dataRequest";
+    const data = {
+      requestSchema: "https://schemas.verida.io/social/contact/schema.json",
+      filter: {},
+      userSelect: true,
     };
-
-    config = this.config;
-    this.ws.onopen = function () {
-      const encryptedRequest = EncryptionUtils.symEncrypt(
-        JSON.stringify(config.request),
-        symKeyBytes
-      );
-      const payload = {
-        request: encryptedRequest,
-      };
-
-      client.ws.send(
-        JSON.stringify({
-          type: "generateJwt",
-          context: config.context,
-          payload,
-        })
-      );
+    const message = "Please share your contact details";
+    const config = {
+      recipientContextName: "Verida: Vault",
     };
-
-    this.ws.onerror = this.error;
+    const messaging = await this.context.getMessaging();
+    await messaging.send(did, type, data, message, config);
   }
-
-  newMessage(event: MessageEvent) {
-    const response = <AuthResponse>JSON.parse(event.data);
-
-    switch (response.type) {
-      case "auth-client-request":
-        const queryParams = this.generateQueryParams(response.message!);
-        const redirectUri = `${this.config.loginUri}${queryParams}`;
-        const schemeUri = `${this.config.schemeUri}${queryParams}`;
-        let qrcode = new QrCode({
-          canvas: document.getElementById(this.config.canvasId!) as any,
-          content: redirectUri,
-          width: 380,
-          image: document.getElementById("image") as any,
-          logo: {
-            src: "https://assets.verida.io/verida_logo_512x512.png",
-          },
-        });
-
-        try {
-          const isMobile = window.matchMedia(
-            "only screen and (max-width: 760px)"
-          ).matches;
-          if (isMobile) {
-            // On a mobile device, so attempting to auto-redirect to application
-            window.location.href = schemeUri;
-          }
-        } catch (err) {
-          console.log(err);
-        }
-
-        const deeplinkElm = document.getElementById(this.config.deeplinkId!);
-
-        if (deeplinkElm) {
-          deeplinkElm.setAttribute("href", schemeUri);
-        }
-        qrcode
-          .toCanvas()
-          .then(() => {})
-          .catch((error: any) => {
-            console.error("Error: ", { error });
-          });
-        return;
-      case "auth-client-response":
-        const key = this.symKeyBytes!;
-        const checkedValue: HTMLElement | any =
-          document.getElementById("verida-checked");
-        const decrypted = EncryptionUtils.symDecrypt(response.message, key);
-
-        this.modal.style.display = "none";
-        this.config.callback(decrypted, checkedValue.checked);
-        return;
-    }
-
-    console.error(`Unknown message type: ${response.type}`, response);
-  }
+.....
 }
+
+const veridaHelpers = new VeridaHelpers();
+
+export default veridaHelpers;
 ```

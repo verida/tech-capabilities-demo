@@ -17,14 +17,14 @@ export const demoViews = [
     name: "Store Data With Schema",
     link: "/store-data",
   },
-  {
-    name: "Request Data",
-    link: "/request-data-respond",
-  },
-  {
-    name: "Share Data",
-    link: "/share-data",
-  },
+  // {
+  //   name: "Request Data",
+  //   link: "/request-data-respond",
+  // },
+  // {
+  //   name: "Share Data",
+  //   link: "/share-data",
+  // },
 ];
 
 export const exploreViewState: IViewState = {

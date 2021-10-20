@@ -3,9 +3,8 @@
     <div class="content">
       <content-display :fileContent="fileContent" title="Send Message" />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
-
       <iframe
-        src="https://codesandbox.io/embed/adoring-glade-27tqk?fontsize=14&hidenavigation=1&initialpath=%23send-message&module=%2Fsrc%2Fhelpers%2FVeridaHelpers.js&theme=dark"
+        src="https://codesandbox.io/embed/tech-capabilites-demo-v1-27tqk?fontsize=14&hidenavigation=1&initialpath=%23send-message&module=%2Fsrc%2Fdemo-js%2Fsend-message.js&theme=dark"
         style="
           width: 100%;
           height: 500px;
@@ -13,7 +12,7 @@
           border-radius: 4px;
           overflow: hidden;
         "
-        title="adoring-glade-27tqk"
+        title="tech capabilites demo (v1)"
         allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
         sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
       ></iframe>

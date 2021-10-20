@@ -13,3 +13,29 @@ Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi vestibulu
 &nbsp;
 &nbsp;
 &nbsp;
+
+```tsx
+import { Network } from "@verida/client-ts";
+import { VaultAccount } from "@verida/account-web-vault";
+
+
+class VeridaHelpers extends EventEmitter {
+
+ ....
+  async saveInDataStore(data) {
+    await this.dataStore.save(data);
+    return true;
+  }
+
+  async getDatastoreItems() {
+    const items = await this.dataStore.getMany();
+    return items;
+  }
+
+  ....
+}
+
+const veridaHelpers = new VeridaHelpers();
+
+export default veridaHelpers;
+```

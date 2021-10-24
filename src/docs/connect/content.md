@@ -7,7 +7,7 @@ In this tutorial, you will use the tech capabilities demo to connect to the Veri
 > * Test and reset the connection
 &nbsp;
 ## How the tech capabilities demo works
-
+&nbsp;
 This tutorial explains how you can use the tech capabilities demo to connect to the Verida Vault. The demo provides an interactive live code editor that you can optionally use to edit and test your code. All changes to the code will reflect on the right-side panel, where you also find a detailed description of any errors or problems in your code. In case you'd like it, there's a link to the code sandbox which you could open to continue having a play around the different scenarios. 
 &nbsp;
 Upon running the code, it creates the standard Verida connect modal dialog that prompts you to connect to Verida Vault. You will use the Verida Vault application on your mobile device to complete the login process. Upon successful authentication, your public profile will be displayed, which indicates successful connection to the Verida Vault. 

@@ -15,7 +15,7 @@ In order to complete this tutorial, you must first:
 
 ## How the send message demo works
 &nbsp;
-The send message tutorial walks you the process of securely sending messages and data to other parties using the Verida Vault. All interactions occur on the Verida Vault, so messages are encrypted to ensure privacy and security. When sending a message, you will need a DID for the intended recipient. In this demo scenario, we will use the DID on your Verida Vault mobile app for demonstration. However, you can change the DID to match the intended recipients as desired.
+The send message tutorial walks you through the process of securely sending messages and data to other parties using the Verida Vault. All interactions occur on the Verida Vault, so messages are encrypted to ensure privacy and security. When sending a message, you will need a DID for the intended recipient. In this demo scenario, we will use the DID on your Verida Vault mobile app for demonstration. However, you can change the DID to match the intended recipients as desired.
 &nbsp;
 Once a message is sent successfully, the receipient receives a mobile notification asking them to accept or reject the message. Upon accepting the message, the recipient can then read it's ontents. 
 &nbsp;
@@ -45,7 +45,7 @@ Upon accepting the message, you can view its contents and take action. All messa
 ## Code example
 &nbsp;
 Below is an example code sample showing how to send a message to a specific DID using the tech capabilities demo and Verida Vault.
-
+&nbsp;
 ```tsx
 import { Network } from "@verida/client-ts";
 import { VaultAccount } from "@verida/account-web-vault";

@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import { Network } from "@verida/client-ts";
+import { EnvironmentType, Network } from "@verida/client-ts";
 import { VaultAccount } from "@verida/account-web-vault";
 import {
   ErrorMessages,
@@ -10,11 +10,11 @@ import {
 
 const EventEmitter = require("events");
 
-const { VUE_APP_LOGO_URL } = process.env;
-
-const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
 const CONTEXT_NAME = "Verida: Tech Demo App";
-const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
+export const VERIDA_ENVIRONMENT = EnvironmentType.TESTNET;
+
+export const VERIDA_TESTNET_DEFAULT_SERVER =
+  "https://db.testnet.verida.io:5002/";
 
 class VeridaHelpers extends EventEmitter {
   private connection: any;
@@ -50,14 +50,11 @@ class VeridaHelpers extends EventEmitter {
         type: "VeridaMessage",
         endpointUri: VERIDA_TESTNET_DEFAULT_SERVER,
       },
-      vaultConfig: {
-        logoUrl: VUE_APP_LOGO_URL,
-      },
-    } as unknown as any);
+    });
 
-    this.connection = await Network.connect({
+    this.context = await Network.connect({
       client: {
-        ceramicUrl: CERAMIC_URL,
+        environment: VERIDA_ENVIRONMENT,
       },
       account: this.account,
       context: {
@@ -88,7 +85,6 @@ class VeridaHelpers extends EventEmitter {
         },
         {}
       );
-      console.log(services.profile);
 
       services.emit("profileChanged", services.profile);
     };
@@ -103,7 +99,7 @@ class VeridaHelpers extends EventEmitter {
   }
 
   async logout(): Promise<void> {
-    await this.account.disconnect();
+    await this.context.getAccount().disconnect(CONTEXT_NAME);
     this.connection = null;
     this.dataStore = null;
     this.currentNote = null;

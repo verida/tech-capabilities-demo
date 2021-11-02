@@ -23,10 +23,10 @@ export const Connect = () => {
     </div>
     <div class="action-btn">
       <button class="connect" id="connect">
-        <img class="btn-image" src=${unlinkIcon} alt="connect" /><span>Connect</span>
+        <img class="btn-image" src=${unlinkIcon}  /><span>Connect</span>
       </button>
       <button class="disconnect">
-        <img class="btn-image" src=${unlinkIcon} alt="connect" /><span>Disconnect</span>
+        <img class="btn-image" src=${unlinkIcon}  /><span>Disconnect</span>
       </button>
     </div>
   </div>
@@ -44,16 +44,11 @@ export const Connect = () => {
   };
 
   const connect = async () => {
-    try {
-      createElement(".action-btn .connect").style.display = "none";
-      createElement(".waiting-to-connect").style.display = "block";
-      await VeridaHelpers.connect();
-      setUserProfile();
-      createElement(".disconnect").style.display = "block";
+    createElement(".action-btn .connect").style.display = "none";
+    createElement(".waiting-to-connect").style.display = "block";
+    await VeridaHelpers.connect();
+    if (!VeridaHelpers.context) {
       createElement(".waiting-to-connect").style.display = "none";
-    } catch (error) {
-      console.log({ error });
-
       createElement(".action-btn .connect").style.display = "block";
     }
   };
@@ -69,23 +64,17 @@ export const Connect = () => {
     createElement(".app-user").style.display = "flex";
   };
 
-  const closeModal = (event) => {
-    if (
-      event.target.id === "verida-modal" ||
-      event.target.id === "verida-modal-close"
-    ) {
-      createElement(".waiting-to-connect").style.display = "none";
-      createElement(".action-btn .connect").style.display = "block";
-    }
-  };
-
-  // Listen for realtime profile change event
-
-  VeridaHelpers.on("profileChanged", setUserProfile);
-
   createElement(".disconnect").addEventListener("click", logout);
 
   createElement(".action-btn .connect").addEventListener("click", connect);
 
-  window.addEventListener("click", closeModal);
+  // Listen for realtime change event
+
+  VeridaHelpers.on("profileChanged", setUserProfile);
+
+  VeridaHelpers.on("initialized", () => {
+    setUserProfile();
+    createElement(".waiting-to-connect").style.display = "none";
+    createElement(".disconnect").style.display = "block";
+  });
 };

@@ -7,7 +7,7 @@ export const ShareData = () => {
   document.getElementById("app").innerHTML = `
  <div>
     <div class="message-status">
-      <img class="btn-image" src=${statusIcon} alt="connect" />
+      <img class="btn-image" src=${statusIcon}  />
       <h3>Stored Data has been shared please open your vault </h3>
     </div>
     <div class="waiting-to-connect">
@@ -21,7 +21,7 @@ export const ShareData = () => {
     </div>
       <div class="action-btn">
         <button class="connect" id="connect">
-          <img class="btn-image" src=${messageIcon} alt="connect" /><span>Send Message </span>
+          <img class="btn-image" src=${messageIcon}  /><span>Share Data </span>
         </button>
       </div>
   </div>
@@ -32,29 +32,11 @@ export const ShareData = () => {
   };
 
   const connectToSendMessage = async () => {
-    try {
-      createElement(".message-status ").style.display = "none";
-      createElement(".action-btn .connect").style.display = "none";
-      createElement(".waiting-to-connect").style.display = "block";
-      await VeridaHelpers.connect();
-      const items = await VeridaHelpers.getDatastoreItems();
-      if (items.length) {
-        await VeridaHelpers.sendMessage(items[0], "New Contact info");
-        createElement(".waiting-to-connect").style.display = "none";
-        createElement(".message-status ").style.display = "flex";
-      }
-      createElement(".action-btn .connect").style.display = "block";
-    } catch (error) {
-      console.log("Error", { error });
-      createElement(".action-btn .connect").style.display = "block";
-    }
-  };
-
-  const closeModal = (event) => {
-    if (
-      event.target.id === "verida-modal" ||
-      event.target.id === "verida-modal-close"
-    ) {
+    createElement(".message-status ").style.display = "none";
+    createElement(".action-btn .connect").style.display = "none";
+    createElement(".waiting-to-connect").style.display = "block";
+    await VeridaHelpers.connect();
+    if (!VeridaHelpers.context) {
       createElement(".waiting-to-connect").style.display = "none";
       createElement(".action-btn .connect").style.display = "block";
     }
@@ -65,5 +47,18 @@ export const ShareData = () => {
     connectToSendMessage
   );
 
-  window.addEventListener("click", closeModal);
+  VeridaHelpers.on("initialized", async () => {
+    const items = await VeridaHelpers.getDatastoreItems();
+    if (items.length) {
+      const response = await VeridaHelpers.sendMessage(
+        items[0],
+        "New Contact info"
+      );
+      console.log(response);
+
+      createElement(".waiting-to-connect").style.display = "none";
+      createElement(".message-status ").style.display = "flex";
+    }
+    createElement(".action-btn .connect").style.display = "block";
+  });
 };

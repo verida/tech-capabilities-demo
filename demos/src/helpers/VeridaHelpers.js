@@ -1,11 +1,10 @@
-import { Network } from "@verida/client-ts";
+import { Network, EnvironmentType } from "@verida/client-ts";
 import { VaultAccount } from "@verida/account-web-vault";
 
 const EventEmitter = require("events");
 
+const VERIDA_ENVIRONMENT = EnvironmentType.TESTNET;
 const LOGO_URL = "http://assets.verida.io/verida_logo.svg";
-
-const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
 
 const CONTEXT_NAME = "Verida: Tech Capabilities Demo";
 const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
@@ -51,13 +50,18 @@ class VeridaHelpers extends EventEmitter {
 
     this.context = await Network.connect({
       client: {
-        ceramicUrl: CERAMIC_URL,
+        environment: VERIDA_ENVIRONMENT,
       },
       account: this.account,
       context: {
         name: CONTEXT_NAME,
       },
     });
+
+    if (!this.context) {
+      this.emit("authCancelled", "cancel");
+      return;
+    }
 
     this.did = await this.account.did();
     await this.initProfile();
@@ -120,7 +124,6 @@ class VeridaHelpers extends EventEmitter {
   async sendMessage(message, title) {
     const type = "inbox/type/dataSend";
     try {
-      // Generate an inbox message containing an array of data
       const data = {
         data: [message],
       };
@@ -129,8 +132,14 @@ class VeridaHelpers extends EventEmitter {
         recipientContextName: "Verida: Vault",
       };
       const messaging = await this.context.getMessaging();
-      const res = await messaging.send(this.did, type, data, title, config);
-      return res;
+      const response = await messaging.send(
+        this.did,
+        type,
+        data,
+        title,
+        config
+      );
+      return response;
     } catch (error) {
       console.log("messenger error", { error });
     }

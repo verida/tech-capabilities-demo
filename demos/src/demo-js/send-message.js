@@ -21,12 +21,12 @@ export const SendMessage = () => {
         </button>
       </div>
       <button class="send-message">
-        <img class="btn-image" src=${messageIcon} alt="connect" /><span>Send </span>
+        <img class="btn-image" src=${messageIcon}  /><span>Send </span>
       </button>
     </div>
    </form>
     <div class="message-status">
-      <img class="btn-image" src=${statusIcon} alt="connect" />
+      <img class="btn-image" src=${statusIcon}  />
       <h3>Message sent</h3>
     </div>
     <div class="waiting-to-connect">
@@ -40,7 +40,7 @@ export const SendMessage = () => {
     </div>
       <div class="action-btn">
         <button class="connect" id="connect">
-          <img class="btn-image" src=${messageIcon} alt="connect" /><span>Send Message </span>
+          <img class="btn-image" src=${messageIcon}  /><span>Send Message </span>
         </button>
       </div>
   </div>
@@ -51,14 +51,11 @@ export const SendMessage = () => {
   };
 
   const connectToSendMessage = async () => {
-    try {
-      createElement(".action-btn .connect").style.display = "none";
-      createElement(".waiting-to-connect").style.display = "block";
-      await VeridaHelpers.connect();
-      createElement(".title-text").value = VeridaHelpers.did;
+    createElement(".action-btn .connect").style.display = "none";
+    createElement(".waiting-to-connect").style.display = "block";
+    await VeridaHelpers.connect();
+    if (!VeridaHelpers.context) {
       createElement(".waiting-to-connect").style.display = "none";
-      createElement(".form-modal").style.display = "flex";
-    } catch (error) {
       createElement(".action-btn .connect").style.display = "block";
     }
   };
@@ -85,21 +82,15 @@ export const SendMessage = () => {
     createElement(".message-status ").style.display = "flex";
   };
 
-  const closeModal = (event) => {
-    if (
-      event.target.id === "verida-modal" ||
-      event.target.id === "verida-modal-close"
-    ) {
-      createElement(".waiting-to-connect").style.display = "none";
-      createElement(".action-btn .connect").style.display = "block";
-    }
-  };
-
   createElement(".action-btn .connect").addEventListener(
     "click",
     connectToSendMessage
   );
   createElement(".send-message").addEventListener("click", sendMessage);
 
-  window.addEventListener("click", closeModal);
+  VeridaHelpers.on("initialized", () => {
+    createElement(".title-text").value = VeridaHelpers.did;
+    createElement(".waiting-to-connect").style.display = "none";
+    createElement(".form-modal").style.display = "flex";
+  });
 };

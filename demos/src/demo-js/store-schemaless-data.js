@@ -10,7 +10,7 @@ export const StoreSchemalessData = () => {
         <span id="message"> </span>
         <textarea class="desc-text"></textarea/>
         <button  type="submit" class="send-message">
-          <img class="btn-image" src=${messageIcon} alt="connect" />
+          <img class="btn-image" src=${messageIcon}  />
           <span>Save Data </span>
         </button>
     </form>
@@ -23,7 +23,7 @@ export const StoreSchemalessData = () => {
     </button>
   </div>
     <div class="message-status">
-      <img class="btn-image" src=${statusIcon} alt="connect" />
+      <img class="btn-image" src=${statusIcon}  />
       <h3>Data Saved</h3>
       <button class="retrieve-enrypted">
       Retrieve Encrypted
@@ -40,7 +40,7 @@ export const StoreSchemalessData = () => {
     </div>
       <div class="action-btn">
         <button class="connect" id="connect">
-          <img class="btn-image" src=${messageIcon} alt="connect" /><span>Store Data</span>
+          <img class="btn-image" src=${messageIcon}  /><span>Store Data</span>
         </button>
       </div>
   </div>
@@ -51,13 +51,11 @@ export const StoreSchemalessData = () => {
   };
 
   const connect = async () => {
-    try {
-      createElement(".action-btn .connect").style.display = "none";
-      createElement(".waiting-to-connect").style.display = "block";
-      await VeridaHelpers.connect();
+    createElement(".action-btn .connect").style.display = "none";
+    createElement(".waiting-to-connect").style.display = "block";
+    await VeridaHelpers.connect();
+    if (!VeridaHelpers.context) {
       createElement(".waiting-to-connect").style.display = "none";
-      createElement(".form-modal").style.display = "flex";
-    } catch (error) {
       createElement(".action-btn .connect").style.display = "block";
     }
   };
@@ -97,16 +95,6 @@ export const StoreSchemalessData = () => {
     createElement(".desc-text").value = data.text;
   };
 
-  const closeModal = (event) => {
-    if (
-      event.target.id === "verida-modal" ||
-      event.target.id === "verida-modal-close"
-    ) {
-      createElement(".waiting-to-connect").style.display = "none";
-      createElement(".action-btn .connect").style.display = "block";
-    }
-  };
-
   createElement(".action-btn .connect").addEventListener("click", connect);
 
   createElement(".form-modal").addEventListener("submit", saveItem);
@@ -123,5 +111,8 @@ export const StoreSchemalessData = () => {
     getDecryptedData
   );
 
-  window.addEventListener("click", closeModal);
+  VeridaHelpers.on("initialized", async () => {
+    createElement(".waiting-to-connect").style.display = "none";
+    createElement(".form-modal").style.display = "flex";
+  });
 };

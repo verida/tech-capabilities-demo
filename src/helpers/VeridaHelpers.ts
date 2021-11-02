@@ -62,6 +62,11 @@ class VeridaHelpers extends EventEmitter {
       },
     });
 
+    if (!this.context) {
+      this.emit("authenticationCancelled");
+      return;
+    }
+
     this.did = await this.account.did();
     await this.initProfile();
 

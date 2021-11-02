@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
-    "@verida/account-web-vault": "^1.0.5",
-    "@verida/client-ts": "^1.0.8",
+    "@verida/account-web-vault": "^1.1.2",
+    "@verida/client-ts": "^1.1.2",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",

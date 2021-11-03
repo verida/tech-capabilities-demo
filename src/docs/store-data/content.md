@@ -6,8 +6,6 @@ In this tutorial, you will use the tech capabilities demo and Verida Vault to st
 
 &nbsp;
 
-If you instead want to store schemaless data, please refer to the [store schemaless data](./store-schemaless-data) tutorial.
-
 If you instead want to store schemaless data, please refer to the [store schemaless data](./schemaless-data) tutorial. 
 
 &nbsp;

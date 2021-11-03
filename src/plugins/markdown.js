@@ -12,7 +12,7 @@ marked.default.setOptions({
   gfm: true,
   tables: true,
   breaks: true,
-  sanitize: true,
+  // sanitize: true,
   smartLists: true,
   smartypants: true,
   xhtml: false,

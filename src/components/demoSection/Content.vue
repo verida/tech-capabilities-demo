@@ -39,6 +39,7 @@ export default Vue.extend({
 @import "../../assets/scss/_variable.scss";
 
 .content {
+  padding: 0.4rem 1.8rem;
   h1 {
     margin: 0 0 3rem 0;
     font-size: 48px;
@@ -48,7 +49,6 @@ export default Vue.extend({
     font-size: 18px;
     letter-spacing: -0.03em;
     color: #b8b8b8 !important;
-    // background: #333764;
   }
 }
 </style>

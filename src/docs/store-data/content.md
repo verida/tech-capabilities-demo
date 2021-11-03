@@ -4,12 +4,12 @@ In this tutorial, you will use the tech capabilities demo and Verida Vault to st
 > * Create and store data with schema
 
 &nbsp;
-If you instead want to store schemaless data, please refer to the [store schemaless data](./store-schemaless-data) tutorial. 
+If you instead want to store schemaless data, please refer to the [store schemaless data](./schemaless-data) tutorial. 
 &nbsp;
 
 ## Prerequisites
 &nbsp;
-In order to complete this tutorial, you should have an active connection to the Verida Vault as described in the [connect section](./connect.md) of this tutorial series
+In order to complete this tutorial, you should have an active connection to the Verida Vault as described in the [connect section](./connect) of this tutorial series
 &nbsp;
 
 ## How the demo works

@@ -50,6 +50,17 @@
   padding: 0;
 }
 
+a{
+  color: #37D5C7;
+  text-decoration: none;
+}
+
+li {
+  margin:0.5rem 0;
+  padding: 0.3rem;
+}
+
+
 html {
   font-family: sans-serif; // 2
   line-height: 1.15; // 3
@@ -61,3 +72,21 @@ body{
  background-color: $bg-dark100 !important
 }
 
+
+
+code {
+  font-size: 87.5%;
+  color: #e83e8c;
+  word-wrap: break-word;
+  display: block;
+  background-color: #f2f2f2;
+  padding: 0.8rem;
+  margin: 1.2rem auto;
+  border-radius: $border-radius;
+}
+
+
+.md-img {
+  margin: 1.5rem 0;
+  border-radius: $border-radius;
+}

@@ -12,9 +12,15 @@ In this tutorial, you will use the tech capabilities demo and Verida Vault to se
 In order to complete this tutorial, you must first:
 &nbsp;
 
+
 - Create a connection to the Verida Vault as described in the [connect section](./connect.md) of this tutorial series
 - Get the DID of the recipient intended for the message
   &nbsp;
+
+* Create a connection to the Verida Vault as described in the [connect section](./connect) of this tutorial series
+* Get the DID of the recipient intended for the message
+&nbsp;
+
 
 ## How the send message demo works
 
@@ -111,4 +117,8 @@ export default veridaHelpers;
 
 &nbsp;
 
+
 - Move on to the next scenario in this tutorial series, [store schemaless data](./store-schemaless-data)
+
+* Move on to the next scenario in this tutorial series, [store schemaless data](./schemaless-data)
+

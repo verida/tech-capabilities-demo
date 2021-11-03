@@ -10,11 +10,17 @@ In this tutorial, you will use the tech capabilities demo to connect to the Veri
 ## How the tech capabilities demo works
 
 &nbsp;
+
 This tutorial explains how you can use the tech capabilities demo to connect to the Verida Vault. The demo provides an interactive live code editor that you can optionally use to edit and test your code. All changes to the code will reflect on the right-side panel, where you also find a detailed description of any errors or problems in your code. In case you'd like it, there's a link to the code sandbox which you could open to continue having a play around the different scenarios.
 &nbsp;
 Upon running the code, it creates the standard Verida connect modal dialog that prompts you to connect to Verida Vault. You will use the Verida Vault application on your mobile device to complete the login process. Upon successful authentication, your public profile will be displayed, which indicates successful connection to the Verida Vault.
 
+This tutorial explains how you can use the Verida APIs to log into the Verida ecosystem with your own Decentralized Identified (DID) using the Verida Vault.
+&nbsp; 
+
+The demo provides an interactive live code editor that you can use to edit code and try out the Verida APIs. All changes to the code will reflect on the right-side panel, where you also find a detailed description of any errors or problems in your code. In case you'd like it, there's a link to the code sandbox which you could open to continue having a play around the different scenarios. 
 &nbsp;
+
 
 ## Getting started
 
@@ -42,12 +48,15 @@ There are two ways of running the tech capabilities demo - using this deployed v
     &nbsp;
     `npm run serve` starts the tech capabilities demo on port 8080 (or the configured port) of your local host web server, which provides equivalent functionalities to this deployed version.
 
+
+Upon running the code, it creates the standard Verida connect modal dialog that prompts you to connect to Verida Vault. You will use the Verida Vault application on your mobile device to complete the login process. Upon successful authentication, your public profile will be displayed, which indicates successful connection to the Verida Vault. 
+
+
 &nbsp;
 
 ## Connect to the Verida Vault
 
 &nbsp;
-
 To connect to the Verida Vault, start by selecting the “connect” button to initiate the login process. Upon clicking the “connect” button, the application redirects you to this screen where you can log into the Verida Vault by scanning a QR code.
 
 <img class="md-img" src="./media/scan-qr-code.png" height="450" alt="side"/>
@@ -74,11 +83,12 @@ When you successfully connect to the Verida Vault, your public profile will be d
 
 &nbsp;
 
-Below is a sample code on initializing a connection to the Verida Vault.
+A minimal sample for connecting to the Vault looks like this.
 
 ---
 
 ```js
+
 import { Network, EnvironmentType } from "@verida/client-ts";
 import { VaultAccount } from "@verida/account-web-vault";
 
@@ -90,16 +100,36 @@ const LOGO_URL = "http://assets.verida.io/verida_logo.svg";
 const CONTEXT_NAME = "Verida: Tech Capabilities Demo";
 const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
 
-const TEST_DATASTORE_SCHEMA = "https://27tqk.csb.app/schemas/store-data.json";
+const CONTEXT_NAME = 'Verida: Sandbox Demo'
+  const VERIDA_TESTNET_DEFAULT_SERVER = 'https://db.testnet.verida.io:5002/'
 
-class VeridaHelpers extends EventEmitter {
-  context = {};
-  account = null;
-  did = "";
-  error = {};
-  profile = {};
-  database = {};
-  dataStore = {};
+  const account = new window.VaultAccount({
+    defaultDatabaseServer: {
+        type: 'VeridaDatabase',
+        endpointUri: VERIDA_TESTNET_DEFAULT_SERVER
+    },
+    defaultMessageServer: {
+        type: 'VeridaMessage',
+        endpointUri: VERIDA_TESTNET_DEFAULT_SERVER
+    },
+  })
+
+  const context = await window.Network.connect({
+    client: {
+        environment: 'testnet'
+    },
+    account: account,
+    context: {
+        name: CONTEXT_NAME
+    }
+  })
+
+
+const did = await account.did()
+console.log("User is connected with DID: " + did)
+```
+
+You will find similar code to this sample in the `VeridaHelpers.js` file in the interactive code below. In this case it has been structured in a way that might be more typically seen in a larger application. 
 
   /**
    * Public method for initializing this app
@@ -192,6 +222,7 @@ const veridaHelpers = new VeridaHelpers();
 
 export default veridaHelpers;
 ```
+
 
 &nbsp;
 

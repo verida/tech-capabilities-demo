@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="content">
-      <content-display :fileContent="fileContent" title="Store Data" />
+      <content-display :fileContent="fileContent" title="Store Data using a Schema" />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
       <iframe
         src="https://codesandbox.io/embed/tech-capabilites-demo-v1-27tqk?fontsize=14&hidenavigation=1&initialpath=%23store-data&module=%2Fsrc%2Fdemo-js%2Fstore-data-with-schema.js&theme=dark"

@@ -1,12 +1,13 @@
 In this tutorial, you will use the tech capabilities demo and Verida Vault to store data with schema. Follow this tutorial to:
 &nbsp;
 
-> - Learn how the demo works
-> - Create and store data with schema
+* Learn how the demo works
+* Create and store data with schema
 
 &nbsp;
+Verida can use JSON Schemas to define structured storage. By using this multiple applications are able to understand data shared between them. The schema will automatically enforce validation and required fields defined in the schema. 
 
-If you instead want to store schemaless data, please refer to the [store schemaless data](./store-schemaless-data) tutorial.
+&nbsp;
 
 If you instead want to store schemaless data, please refer to the [store schemaless data](./schemaless-data) tutorial.
 

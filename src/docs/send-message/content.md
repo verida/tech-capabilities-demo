@@ -1,10 +1,11 @@
 In this tutorial, you will use the tech capabilities demo and Verida Vault to send a message to a DID. Follow this tutorial to:
 &nbsp;
 
-> - Learn how the send message demo works
-> - Create and send a message
-> - Accept and read a message on Verida Vault
->   &nbsp;
+* Learn how the send message demo works
+* Create and send a message
+* Accept and read a message on Verida Vault
+
+&nbsp;
 
 ## Prerequisites
 
@@ -12,10 +13,13 @@ In this tutorial, you will use the tech capabilities demo and Verida Vault to se
 In order to complete this tutorial, you must first:
 &nbsp;
 
+<<<<<<< HEAD
 - Create a connection to the Verida Vault as described in the [connect section](./connect.md) of this tutorial series
 - Get the DID of the recipient intended for the message
   &nbsp;
 
+=======
+>>>>>>> a1f0753e8c192fce04be3fb763162667049352d6
 * Create a connection to the Verida Vault as described in the [connect section](./connect) of this tutorial series
 * Get the DID of the recipient intended for the message
   &nbsp;
@@ -103,6 +107,9 @@ export default veridaHelpers;
 
 &nbsp;
 
+<<<<<<< HEAD
 - Move on to the next scenario in this tutorial series, [store schemaless data](./store-schemaless-data)
 
+=======
+>>>>>>> a1f0753e8c192fce04be3fb763162667049352d6
 * Move on to the next scenario in this tutorial series, [store schemaless data](./schemaless-data)

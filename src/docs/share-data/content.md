@@ -19,8 +19,7 @@ Facilisis dui elit etiam eget dictum nunc elementum auctor urna. Morbi vestibulu
 ---
 
 ```tsx
-import { Network } from "@verida/client-ts";
-import { VaultAccount } from "@verida/account-web-vault";
+...
 
 class VeridaHelpers extends EventEmitter {
   async sendMessage(message, title) {

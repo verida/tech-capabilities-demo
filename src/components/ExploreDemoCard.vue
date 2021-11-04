@@ -3,13 +3,18 @@
     <div class="demo-bg">
       <h5 class="text-center">Keep Exploring</h5>
       <div class="demo-content">
-        <div v-for="(demo, index) in demos" :key="index" class="demo-card">
-          <div class="demo-card-box"></div>
+        <div v-for="(demo, index) in demoCard" :key="index" class="demo-card">
+          <div class="demo-card-box">
+            <img :src="demo.imagePath" />
+          </div>
           <hr />
-          <span>{{ index === 0 ? "Previous" : "Current" }}Demo</span>
-          <div class="d-flex justify-content-between demo-card-action">
-            <h6 class="text-priamry">{{ demo.name }}</h6>
-            <router-link :to="demo.link">
+          <span>{{ index === 0 ? "Previous" : "Next" }} Demo</span>
+          <div>
+            <router-link
+              class="d-flex justify-content-between demo-card-action"
+              :to="demo.link"
+            >
+              <h6 class="text-priamry">{{ demo.name }}</h6>
               <b-icon class="text-primary" icon="arrow-right" />
             </router-link>
           </div>
@@ -20,22 +25,18 @@
 </template>
 
 <script lang="ts">
-import { TLinks } from "@/interface";
 import Vue from "vue";
-
-interface IData {
-  demos: TLinks[];
-}
+import { createNamespacedHelpers } from "vuex";
+const { mapGetters } = createNamespacedHelpers("demoView");
 
 export default Vue.extend({
   name: "ExploreDemo",
-  data(): IData {
-    return {
-      demos: [],
-    };
+  computed: {
+    ...mapGetters(["demoCard"]),
   },
+  methods: {},
   mounted() {
-    this.demos = [this.$store.state.demos.prev, this.$store.state.demos.next];
+    console.log(this.demoCard);
   },
 });
 </script>
@@ -66,11 +67,17 @@ h5 {
   width: 384px;
   height: 500px;
   margin: 0 1rem;
+
   &-box {
     width: 384px;
     height: 332.11px;
     background: $bg-light;
     border-radius: 8px;
+    img {
+      background-size: cover;
+      width: 384px;
+      height: 332.11px;
+    }
   }
   span {
     color: $app-green;

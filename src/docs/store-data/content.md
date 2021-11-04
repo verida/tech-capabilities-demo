@@ -8,7 +8,7 @@ In this tutorial, you will use the tech capabilities demo and Verida Vault to st
 
 If you instead want to store schemaless data, please refer to the [store schemaless data](./store-schemaless-data) tutorial.
 
-If you instead want to store schemaless data, please refer to the [store schemaless data](./schemaless-data) tutorial. 
+If you instead want to store schemaless data, please refer to the [store schemaless data](./schemaless-data) tutorial.
 
 &nbsp;
 
@@ -60,8 +60,7 @@ Below is an example code sample showing how to store data with schema.
 &nbsp;
 
 ```tsx
-import { Network } from "@verida/client-ts";
-import { VaultAccount } from "@verida/account-web-vault";
+...
 
 
 class VeridaHelpers extends EventEmitter {
@@ -77,7 +76,7 @@ class VeridaHelpers extends EventEmitter {
     return items;
   }
 
-  ....
+  ...
 }
 
 const veridaHelpers = new VeridaHelpers();

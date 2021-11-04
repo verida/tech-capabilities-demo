@@ -44,10 +44,10 @@ export default Vue.extend({
     margin: 0 0 3rem 0;
     font-size: 48px;
   }
+
   .text-body {
     font-weight: 300;
     font-size: 18px;
-    letter-spacing: -0.03em;
     color: #b8b8b8 !important;
   }
 }

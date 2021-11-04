@@ -1,1 +1,1 @@
-export type { TLinks, TDemos, IViewState, IRouteStore } from "./interface";
+export type { TLinks, IViewState, IRouteStore } from "./interface";

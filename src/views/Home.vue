@@ -205,14 +205,14 @@ export default Vue.extend({
       }
       &-list {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
         align-items: center;
-        padding: 0px 20px 0px 18px;
-        height: 64px;
+        justify-content: space-between;
+        padding: 0 1.1rem 0 1.2rem;
+        height: 4rem;
+
         background: #11132c;
         border: 1px solid #1d1f40;
-        box-sizing: border-box;
+        // box-sizing: border-box;
         box-shadow: 0px 4px 25px rgba(65, 65, 65, 0.4);
         border-radius: $border-radius;
         span {

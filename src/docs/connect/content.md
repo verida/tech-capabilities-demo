@@ -16,11 +16,10 @@ This tutorial explains how you can use the tech capabilities demo to connect to 
 Upon running the code, it creates the standard Verida connect modal dialog that prompts you to connect to Verida Vault. You will use the Verida Vault application on your mobile device to complete the login process. Upon successful authentication, your public profile will be displayed, which indicates successful connection to the Verida Vault.
 
 This tutorial explains how you can use the Verida APIs to log into the Verida ecosystem with your own Decentralized Identified (DID) using the Verida Vault.
-&nbsp; 
-
-The demo provides an interactive live code editor that you can use to edit code and try out the Verida APIs. All changes to the code will reflect on the right-side panel, where you also find a detailed description of any errors or problems in your code. In case you'd like it, there's a link to the code sandbox which you could open to continue having a play around the different scenarios. 
 &nbsp;
 
+The demo provides an interactive live code editor that you can use to edit code and try out the Verida APIs. All changes to the code will reflect on the right-side panel, where you also find a detailed description of any errors or problems in your code. In case you'd like it, there's a link to the code sandbox which you could open to continue having a play around the different scenarios.
+&nbsp;
 
 ## Getting started
 
@@ -48,9 +47,7 @@ There are two ways of running the tech capabilities demo - using this deployed v
     &nbsp;
     `npm run serve` starts the tech capabilities demo on port 8080 (or the configured port) of your local host web server, which provides equivalent functionalities to this deployed version.
 
-
-Upon running the code, it creates the standard Verida connect modal dialog that prompts you to connect to Verida Vault. You will use the Verida Vault application on your mobile device to complete the login process. Upon successful authentication, your public profile will be displayed, which indicates successful connection to the Verida Vault. 
-
+Upon running the code, it creates the standard Verida connect modal dialog that prompts you to connect to Verida Vault. You will use the Verida Vault application on your mobile device to complete the login process. Upon successful authentication, your public profile will be displayed, which indicates successful connection to the Verida Vault.
 
 &nbsp;
 
@@ -88,7 +85,6 @@ A minimal sample for connecting to the Vault looks like this.
 ---
 
 ```js
-
 import { Network, EnvironmentType } from "@verida/client-ts";
 import { VaultAccount } from "@verida/account-web-vault";
 
@@ -100,64 +96,64 @@ const LOGO_URL = "http://assets.verida.io/verida_logo.svg";
 const CONTEXT_NAME = "Verida: Tech Capabilities Demo";
 const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
 
-const CONTEXT_NAME = 'Verida: Sandbox Demo'
-  const VERIDA_TESTNET_DEFAULT_SERVER = 'https://db.testnet.verida.io:5002/'
+const CONTEXT_NAME = "Verida: Sandbox Demo";
+const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
 
-  const account = new window.VaultAccount({
-    defaultDatabaseServer: {
-        type: 'VeridaDatabase',
-        endpointUri: VERIDA_TESTNET_DEFAULT_SERVER
-    },
-    defaultMessageServer: {
-        type: 'VeridaMessage',
-        endpointUri: VERIDA_TESTNET_DEFAULT_SERVER
-    },
-  })
+const account = new window.VaultAccount({
+  defaultDatabaseServer: {
+    type: "VeridaDatabase",
+    endpointUri: VERIDA_TESTNET_DEFAULT_SERVER,
+  },
+  defaultMessageServer: {
+    type: "VeridaMessage",
+    endpointUri: VERIDA_TESTNET_DEFAULT_SERVER,
+  },
+});
 
-  const context = await window.Network.connect({
-    client: {
-        environment: 'testnet'
-    },
-    account: account,
-    context: {
-        name: CONTEXT_NAME
-    }
-  })
+const context = await window.Network.connect({
+  client: {
+    environment: "testnet",
+  },
+  account: account,
+  context: {
+    name: CONTEXT_NAME,
+  },
+});
 
-
-const did = await account.did()
-console.log("User is connected with DID: " + did)
+const did = await account.did();
+console.log("User is connected with DID: " + did);
 ```
 
-You will find similar code to this sample in the `VeridaHelpers.js` file in the interactive code below. In this case it has been structured in a way that might be more typically seen in a larger application. 
+You will find similar code to this sample in the `VeridaHelpers.js` file in the interactive code below. In this case it has been structured in a way that might be more typically seen in a larger application.
 
-  /**
-   * Public method for initializing this app
-   */
+/\*\*
+
+- Public method for initializing this app
+  \*/
   async initApp() {
-    if (!this.context) {
-      await this.connect();
-    }
+  if (!this.context) {
+  await this.connect();
+  }
   }
 
-  appInitialized() {
-    return this.context !== null;
-  }
+appInitialized() {
+return this.context !== null;
+}
 
-  async connect() {
-    this.account = new VaultAccount({
-      defaultDatabaseServer: {
-        type: "VeridaDatabase",
-        endpointUri: VERIDA_TESTNET_DEFAULT_SERVER,
-      },
-      defaultMessageServer: {
-        type: "VeridaMessage",
-        endpointUri: VERIDA_TESTNET_DEFAULT_SERVER,
-      },
-      vaultConfig: {
-        logoUrl: LOGO_URL,
-      },
-    });
+async connect() {
+this.account = new VaultAccount({
+defaultDatabaseServer: {
+type: "VeridaDatabase",
+endpointUri: VERIDA_TESTNET_DEFAULT_SERVER,
+},
+defaultMessageServer: {
+type: "VeridaMessage",
+endpointUri: VERIDA_TESTNET_DEFAULT_SERVER,
+},
+vaultConfig: {
+logoUrl: LOGO_URL,
+},
+});
 
     this.context = await Network.connect({
       client: {
@@ -181,46 +177,48 @@ You will find similar code to this sample in the `VeridaHelpers.js` file in the 
 
     this.database = await this.context.openDatabase("test_db");
     this.dataStore = await this.context.openDatastore(TEST_DATASTORE_SCHEMA);
-  }
 
-  async initProfile() {
-    try {
-      const client = await this.context.getClient();
-      const profile = await client.openPublicProfile(this.did, "Verida: Vault");
-      const cb = async () => {
-        const data = await profile.getMany();
-        this.profile = data.reduce((result, item) => {
-          result[item.key] = item.value;
-          return result;
-        }, {});
-        this.emit("profileChanged", this.profile);
-      };
-      profile.listen(cb);
-      await cb();
-    } catch (error) {
-      console.log("User", { error });
-    }
-  }
+}
 
-  handleErrors(error) {
-    this.error = error;
-    this.emit("error", error);
-  }
+async initProfile() {
+try {
+const client = await this.context.getClient();
+const profile = await client.openPublicProfile(this.did, "Verida: Vault");
+const cb = async () => {
+const data = await profile.getMany();
+this.profile = data.reduce((result, item) => {
+result[item.key] = item.value;
+return result;
+}, {});
+this.emit("profileChanged", this.profile);
+};
+profile.listen(cb);
+await cb();
+} catch (error) {
+console.log("User", { error });
+}
+}
 
-  async logout() {
-    await this.account.disconnect();
-    this.context = null;
-    this.account = null;
-    this.did = "";
-    this.database = "";
-    this.error = {};
-    this.profile = {};
-  }
+handleErrors(error) {
+this.error = error;
+this.emit("error", error);
+}
+
+async logout() {
+await this.account.disconnect();
+this.context = null;
+this.account = null;
+this.did = "";
+this.database = "";
+this.error = {};
+this.profile = {};
+}
 }
 
 const veridaHelpers = new VeridaHelpers();
 
 export default veridaHelpers;
+
 ```
 
 
@@ -231,3 +229,4 @@ export default veridaHelpers;
 &nbsp;
 
 - Build on the connect demo by moving to the next scenario in this tutorial series, [send message](./send-message)
+```

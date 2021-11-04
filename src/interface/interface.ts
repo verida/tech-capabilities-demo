@@ -21,13 +21,8 @@ export type TLinks = {
   link: string;
 };
 
-export type TDemos = {
-  prev: TLinks | undefined;
-  next: TLinks | undefined;
-};
-
 export interface IViewState {
-  demos: TDemos;
+  demo: any;
 }
 
 export interface IRouteStore<T> {

@@ -9,7 +9,7 @@ In this tutorial, you will use the tech capabilities demo to connect to the Veri
 
 ## How the tech capabilities demo works
 
-&&nbsp;
+&nbsp;
 This tutorial explains how you can use the Verida APIs to log into the Verida ecosystem with your own Decentralized Identified (DID) using the Verida Vault.
 &nbsp; 
 
@@ -93,7 +93,7 @@ const did = await account.did()
 console.log("User is connected with DID: " + did)
 ```
 
-You will find similar code to this sample in the `VeridaHelpers.js` file in the interactive code below. In this case it has been structured in a way that might be more typically seen in a larger application. 
+You will find similar code to this sample in the _VeridaHelpers.js_ file in the interactive code below. In this case it has been structured in a way that might be more typically seen in a larger application. 
 &nbsp;
 
 ## Next steps:

@@ -38,7 +38,7 @@ On this Verida Vault screen, select the login button to approve your login reque
 
 When you successfully connect to the Verida Vault, your public profile will be displayed on the top right corner of the preview panel. To reset the connection, click on the disconnect button.
 
-<img class="md-img"  src="./media/connected.PNG"  height="450" />
+<img class="md-img"  src="./media/connected.png"  height="450" />
 
 &nbsp;
 

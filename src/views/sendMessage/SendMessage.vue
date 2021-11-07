@@ -27,6 +27,7 @@ import { createNamespacedHelpers } from "vuex";
 import ContentDisplay from "@/components/demoSection/Content.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
 import FileContent from "@/docs/send-message/content.md";
+import { scrollToTop } from "@/helpers/utils";
 
 const { mapMutations } = createNamespacedHelpers("demoView");
 
@@ -50,6 +51,7 @@ export default Vue.extend({
     this.navigate({
       currentPath: this.$route.name,
     });
+    scrollToTop();
   },
 });
 </script>

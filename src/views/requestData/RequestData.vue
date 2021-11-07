@@ -26,10 +26,13 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { createNamespacedHelpers } from "vuex";
 import ContentDisplay from "@/components/demoSection/Content.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
 import FileContent from "@/docs/request-data/content.md";
-import $store from "@/store";
+import { scrollToTop } from "@/helpers/utils";
+
+const { mapMutations } = createNamespacedHelpers("demoView");
 
 export default Vue.extend({
   name: "Request Data",
@@ -44,13 +47,15 @@ export default Vue.extend({
       fileContent: FileContent,
     };
   },
-  beforeRouteEnter(to, from, next) {
-    next(() => {
-      $store.commit("demoDisplay", {
-        currentPath: to,
-        prevPath: from,
-      });
+  methods: {
+    ...mapMutations(["navigate"]),
+  },
+
+  mounted() {
+    this.navigate({
+      currentPath: this.$route.name,
     });
+    scrollToTop();
   },
 });
 </script>

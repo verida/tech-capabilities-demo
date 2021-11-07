@@ -9,7 +9,7 @@ Verida can use JSON Schemas to define structured storage. By using this multiple
 
 &nbsp;
 
-If you instead want to store schemaless data, please refer to the [store schemaless data](./schemaless-data) tutorial. 
+If you instead want to store schemaless data, please refer to the [store schemaless data](./schemaless-data) tutorial.
 
 &nbsp;
 
@@ -61,8 +61,7 @@ Below is an example code sample showing how to store data with schema.
 &nbsp;
 
 ```tsx
-import { Network } from "@verida/client-ts";
-import { VaultAccount } from "@verida/account-web-vault";
+...
 
 
 class VeridaHelpers extends EventEmitter {
@@ -78,7 +77,7 @@ class VeridaHelpers extends EventEmitter {
     return items;
   }
 
-  ....
+  ...
 }
 
 const veridaHelpers = new VeridaHelpers();

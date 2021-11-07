@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="content">
-      <content-display :fileContent="fileContent" title="Store Data using a Schema" />
+      <content-display
+        :fileContent="fileContent"
+        title="Store Data using a Schema"
+      />
       <h3 class="my-5 text-white text-center">Test this Code</h3>
       <iframe
         src="https://codesandbox.io/embed/tech-capabilites-demo-v1-27tqk?fontsize=14&hidenavigation=1&initialpath=%23store-data&module=%2Fsrc%2Fdemo-js%2Fstore-data-with-schema.js&theme=dark"
@@ -23,11 +26,13 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { createNamespacedHelpers } from "vuex";
 import ContentDisplay from "@/components/demoSection/Content.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
-import $store from "@/store";
-
 import FileContent from "@/docs/store-data/content.md";
+import { scrollToTop } from "@/helpers/utils";
+
+const { mapMutations } = createNamespacedHelpers("demoView");
 
 export default Vue.extend({
   name: "StoreData",
@@ -42,13 +47,14 @@ export default Vue.extend({
       fileContent: FileContent,
     };
   },
-  beforeRouteEnter(to, from, next) {
-    next(() => {
-      $store.commit("demoDisplay", {
-        currentPath: to,
-        prevPath: from,
-      });
+  methods: {
+    ...mapMutations(["navigate"]),
+  },
+  mounted() {
+    this.navigate({
+      currentPath: this.$route.name,
     });
+    scrollToTop();
   },
 });
 </script>

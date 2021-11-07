@@ -1,9 +1,9 @@
 In this tutorial, you will use the tech capabilities demo and Verida Vault to send a message to a DID. Follow this tutorial to:
 &nbsp;
 
-* Learn how the send message demo works
-* Create and send a message
-* Accept and read a message on Verida Vault
+- Learn how the send message demo works
+- Create and send a message
+- Accept and read a message on Verida Vault
 
 &nbsp;
 
@@ -13,10 +13,9 @@ In this tutorial, you will use the tech capabilities demo and Verida Vault to se
 In order to complete this tutorial, you must first:
 &nbsp;
 
-* Create a connection to the Verida Vault as described in the [connect section](./connect) of this tutorial series
-* Get the DID of the recipient intended for the message
-&nbsp;
-
+- Create a connection to the Verida Vault as described in the [connect section](./connect) of this tutorial series
+- Get the DID of the recipient intended for the message
+  &nbsp;
 
 ## How the send message demo works
 
@@ -32,7 +31,7 @@ Once a message is sent successfully, the receipient receives a mobile notificati
 
 To transfer a message, select the "send message" button on the right-side panel. If your screen shows "connect" instead of "send message", start by [connecting to Verida Vault](./connect). In this scenario, the Verida connect modal won't popup because we are already logged into Verida Vault and our session stored.
 
-<img class="md-img"  src="./media/send-message.png"  height="450" />
+<img class="md-img"  src="./media/connected.PNG"  height="450" />
 
 Upon selecting the send message button, the demo navigates to a screen where you can enter the recipient's DID and an empty text box where you can type your message. By default, the DID field contains the DID on your mobile application, but you can change it to another receiver DID.
 
@@ -58,22 +57,10 @@ Below is an example code sample showing how to send a message to a specific DID 
 &nbsp;
 
 ```tsx
-import { Network } from "@verida/client-ts";
-import { VaultAccount } from "@verida/account-web-vault";
-
-const EventEmitter = require("events");
-
-const LOGO_URL = "http://assets.verida.io/verida_logo.svg";
-
-const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
-
-const CONTEXT_NAME = "Verida: Tech Capabilities Demo";
-const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
-
-const TEST_DATASTORE_SCHEMA = "https://27tqk.csb.app/schemas/store-data.json";
+...
 
 class VeridaHelpers extends EventEmitter {
- .....
+ ...
 
   async sendMessage(message, title) {
     const type = "inbox/type/dataSend";
@@ -99,7 +86,7 @@ class VeridaHelpers extends EventEmitter {
     }
   }
 
-  ....
+  ...
 }
 
 const veridaHelpers = new VeridaHelpers();
@@ -113,5 +100,4 @@ export default veridaHelpers;
 
 &nbsp;
 
-* Move on to the next scenario in this tutorial series, [store schemaless data](./schemaless-data)
-
+- Move on to the next scenario in this tutorial series, [store schemaless data](./schemaless-data)

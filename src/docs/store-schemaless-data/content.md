@@ -66,22 +66,10 @@ Below is an example code sample showing how to store schemaless data in the Veri
 &nbsp;
 
 ```tsx
-import { Network } from "@verida/client-ts";
-import { VaultAccount } from "@verida/account-web-vault";
-
-const EventEmitter = require("events");
-
-const LOGO_URL = "http://assets.verida.io/verida_logo.svg";
-
-const CERAMIC_URL = "https://ceramic-clay.3boxlabs.com";
-
-const CONTEXT_NAME = "Verida: Tech Capabilities Demo";
-const VERIDA_TESTNET_DEFAULT_SERVER = "https://db.testnet.verida.io:5002/";
-
-const TEST_DATASTORE_SCHEMA = "https://27tqk.csb.app/schemas/store-data.json";
+...
 
 class VeridaHelpers extends EventEmitter {
-  ....
+  ...
   async saveInDatabase(data) {
     await this.database.save(data);
     return true;
@@ -101,7 +89,7 @@ class VeridaHelpers extends EventEmitter {
 
     return localData;
 
-    .....
+    ...
   }
 }
 

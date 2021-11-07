@@ -23,11 +23,13 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { createNamespacedHelpers } from "vuex";
 import ContentDisplay from "@/components/demoSection/Content.vue";
 import ExploreDemo from "@/components/ExploreDemoCard.vue";
 import FileContent from "@/docs/share-data/content.md";
+import { scrollToTop } from "@/helpers/utils";
 
-import $store from "@/store";
+const { mapMutations } = createNamespacedHelpers("demoView");
 
 export default Vue.extend({
   name: "Share Data",
@@ -43,13 +45,15 @@ export default Vue.extend({
     };
   },
 
-  beforeRouteEnter(to, from, next) {
-    next(() => {
-      $store.commit("demoDisplay", {
-        currentPath: to,
-        prevPath: from,
-      });
+  methods: {
+    ...mapMutations(["navigate"]),
+  },
+
+  mounted() {
+    this.navigate({
+      currentPath: this.$route.name,
     });
+    scrollToTop();
   },
 });
 </script>

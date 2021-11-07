@@ -1,3 +1,4 @@
+import { routes } from "@/constants/constant";
 import { IRouteStore, IViewState, TLinks } from "@/interface";
 import store from "store";
 
@@ -5,31 +6,31 @@ const DEMO_NAVIGATION = "demo_navigation";
 
 export const demoViews = [
   {
-    name: "Connect",
+    name: routes.CONNECT,
     link: "/connect",
     imagePath: "/media/connect-demo.PNG",
   },
   {
-    name: "Send Message",
+    name: routes.MESSAGE,
     link: "/send-message",
     imagePath: "/media/send-message-demo.png",
   },
   {
-    name: "Store Schemaless Data",
+    name: routes.SCHEMALESS,
     link: "/schemaless-data",
     imagePath: "/media/store-data-demo.PNG",
   },
   {
-    name: "Store Data With Schema",
+    name: routes.SCHEMAS,
     link: "/store-data",
     imagePath: "/media/store-data-demo.PNG",
   },
   // {
-  //   name: "Request Data",
+  //   name: routes.REQUEST_DATA,
   //   link: "/request-data-respond",
   // },
   // {
-  //   name: "Share Data",
+  //   name: routes.SHARE_DATA,
   //   link: "/share-data",
   // },
 ];

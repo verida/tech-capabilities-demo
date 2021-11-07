@@ -69,11 +69,6 @@ export default Vue.extend({
       currentRoute: this.$route.name,
     };
   },
-  methods: {},
-  mounted() {
-    // console.log(this.demoCard);
-    // console.log(this.$route.name);
-  },
 });
 </script>
 

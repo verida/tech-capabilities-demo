@@ -50,7 +50,7 @@ export default Vue.extend({
 
   mounted() {
     this.navigate({
-      currentPath: this.$route.path,
+      currentPath: this.$route.name,
     });
   },
 });

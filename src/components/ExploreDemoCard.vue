@@ -4,18 +4,45 @@
       <h5 class="text-center">Keep Exploring</h5>
       <div class="demo-content">
         <div v-for="(demo, index) in demoCard" :key="index" class="demo-card">
-          <div class="demo-card-box">
-            <img :src="demo.imagePath" />
-          </div>
           <hr />
-          <span>{{ index === 0 ? "Previous" : "Next" }} Demo</span>
-          <div>
-            <router-link
-              class="d-flex justify-content-between demo-card-action"
-              :to="demo.link"
-            >
-              <h6 class="text-priamry">{{ demo.name }}</h6>
-              <b-icon class="text-primary" icon="arrow-right" />
+          <div v-if="demoCard.length === 1 && connectRoute === currentRoute">
+            <router-link :to="demo.link">
+              <span class="right-align"> Next Demo</span>
+              <div class="d-flex justify-content-between demo-card-action">
+                <h6 class="text-priamry">{{ demo.name }}</h6>
+                <b-icon class="text-primary" icon="arrow-right" />
+              </div>
+            </router-link>
+          </div>
+          <div v-else-if="index === 1">
+            <router-link :to="demo.link">
+              <span class="right-align"
+                >{{ index === 0 ? "Previous" : "Next" }} Demo</span
+              >
+              <div class="d-flex justify-content-between demo-card-action">
+                <h6 class="text-priamry">{{ demo.name }}</h6>
+                <b-icon class="text-primary" icon="arrow-right" />
+              </div>
+            </router-link>
+          </div>
+          <div v-else>
+            <router-link :to="demo.link">
+              <div
+                class="
+                  d-flex
+                  align-items-center
+                  justify-content-between
+                  demo-card-action
+                "
+              >
+                <b-icon class="text-primary rotated" icon="arrow-right" />
+                <div class="align-items-center">
+                  <span class="right-align"
+                    >{{ index === 0 ? "Previous" : "Next" }} Demo</span
+                  >
+                  <h6 class="text-priamry">{{ demo.name }}</h6>
+                </div>
+              </div>
             </router-link>
           </div>
         </div>
@@ -27,6 +54,8 @@
 <script lang="ts">
 import Vue from "vue";
 import { createNamespacedHelpers } from "vuex";
+import { routes } from "../constants/constant";
+
 const { mapGetters } = createNamespacedHelpers("demoView");
 
 export default Vue.extend({
@@ -34,9 +63,16 @@ export default Vue.extend({
   computed: {
     ...mapGetters(["demoCard"]),
   },
+  data() {
+    return {
+      connectRoute: routes.CONNECT,
+      currentRoute: this.$route.name,
+    };
+  },
   methods: {},
   mounted() {
-    console.log(this.demoCard);
+    // console.log(this.demoCard);
+    // console.log(this.$route.name);
   },
 });
 </script>
@@ -45,6 +81,9 @@ export default Vue.extend({
 @import "../assets/scss/_variable.scss";
 $mobile: 768px;
 
+.rotated {
+  transform: rotate(180deg);
+}
 .demo-bg {
   padding: 10rem 0;
 }

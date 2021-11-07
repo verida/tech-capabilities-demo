@@ -48,10 +48,9 @@ const getters = {
 
 const mutations = {
   navigate(state: IViewState, route: IRouteStore<string>): void {
-    const isFirstPage = demoViews[0].link === route.currentPath;
+    const isFirstPage = demoViews[0].name === route.currentPath;
     const isLastPage =
-      demoViews[demoViews.length - 1].link === route.currentPath;
-    const hasTwoItemsInArray = state.demo.length === 2;
+      demoViews[demoViews.length - 1].name === route.currentPath;
     switch (true) {
       case isFirstPage: {
         state.demo = [];
@@ -61,24 +60,18 @@ const mutations = {
       }
       case isLastPage: {
         state.demo.pop();
-        state.demo.push(demoViews[0]);
-        store.set(DEMO_NAVIGATION, state.demo);
-        break;
-      }
-      case hasTwoItemsInArray: {
-        state.demo.pop();
         const currentIndex = demoViews.findIndex(
-          (item) => item.link === route.currentPath
+          (item) => item.name === route.currentPath
         );
-        state.demo.push(demoViews[currentIndex + 1]);
+        state.demo = [demoViews[currentIndex - 1]];
         store.set(DEMO_NAVIGATION, state.demo);
         break;
       }
       default: {
         const currentIndex = demoViews.findIndex(
-          (item) => item.link === route.currentPath
+          (item) => item.name === route.currentPath
         );
-        state.demo.push(demoViews[currentIndex + 1]);
+        state.demo = [demoViews[currentIndex - 1], demoViews[currentIndex + 1]];
         store.set(DEMO_NAVIGATION, state.demo);
         break;
       }

@@ -31,7 +31,7 @@ Once a message is sent successfully, the receipient receives a mobile notificati
 
 To transfer a message, select the "send message" button on the right-side panel. If your screen shows "connect" instead of "send message", start by [connecting to Verida Vault](./connect). In this scenario, the Verida connect modal won't popup because we are already logged into Verida Vault and our session stored.
 
-<img class="md-img"  src="./media/connected.PNG"  height="450" />
+<img class="md-img"  src="./media/connected.png"  height="450" />
 
 Upon selecting the send message button, the demo navigates to a screen where you can enter the recipient's DID and an empty text box where you can type your message. By default, the DID field contains the DID on your mobile application, but you can change it to another receiver DID.
 

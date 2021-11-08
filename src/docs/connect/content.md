@@ -22,11 +22,11 @@ Upon running the code, it creates the standard Verida connect modal dialog that 
 &nbsp;
 To connect to the Verida Vault, start by selecting the “connect” button to initiate the login process. Upon clicking the “connect” button, the application redirects you to this screen where you can log into the Verida Vault by scanning a QR code.
 
-<img class="md-img" src="./media/scan-qr-code.png" height="450" alt="side"/>
+<img class="md-img" src="./media/scan-qr-code-demo.png" height="450" alt="side"/>
 
 Upon scanning the QR code using your mobile device, Verida Vault will prompt you to approve your new login request to complete the authentication process as shown below.
 
-<img class="md-img"  src="/media/vault-login.png"  height="450" />
+<img class="md-img"  src="/media/vault-login-demo.png"  height="450" />
 
 On this Verida Vault screen, select the login button to approve your login request before it times out. You are now connected to Verida Vault.
 
@@ -38,7 +38,7 @@ On this Verida Vault screen, select the login button to approve your login reque
 
 When you successfully connect to the Verida Vault, your public profile will be displayed on the top right corner of the preview panel. To reset the connection, click on the disconnect button.
 
-<img class="md-img"  src="./media/connected.png"  height="450" />
+<img class="md-img"  src="./media/connected-screen.png"  height="450" />
 
 &nbsp;
 

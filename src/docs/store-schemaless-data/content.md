@@ -25,12 +25,12 @@ When storing schemaless data, you create the data and save the record in a datab
 &nbsp;
 To create and save a data record, navigate to this "store schemaless data" blade of the demo and select the "store data" button, as shown below.
 
-<img class="md-img"  src="./media/store-schemaless-data.png"  height="450" />
+<img class="md-img"  src="./media/store-schemaless-data-demo.png"  height="450" />
 
 &nbsp;
 Upon clicking the "store data" button, the demo reconnects to the Verida Vault and navigates to the "save data" screen as shown below. If you haven't connected to the Verida Vault yet, you will be prompted to complete your connection before saving any data.
 
-<img class="md-img"  src="./media/save-data.png"  height="450" />
+<img class="md-img"  src="./media/save-data-demo.png"  height="450" />
 
 &nbsp;
 While on the "save data" screen, start by entering the text string you'd like to save in the provided text box. Once done, click save data.
@@ -44,17 +44,17 @@ The saved data will be stored in a Verida Storage Node, the default database and
 &nbsp;
 To view the encrypted data, select the "retrieve encrypted" button as in the screen below.
 
-<img class="md-img"  src="./media/retrieve-encrypted-data.png"  height="450" />
+<img class="md-img"  src="./media/retrieve-encrypted-data-demo.png"  height="450" />
 
 &nbsp;
 Retrieving encrypted data will return a copy of your schemaless data as stored in the secure, encrypted Verida storage node.
 
-<img class="md-img"  src="./media/encrypted-data.png"  height="450" />
+<img class="md-img"  src="./media/encrypted-data-demo.png"  height="450" />
 
 &nbsp;
 If you'd like to view a copy of the decrypted data, select the "retrieve decrypted" button, which shows you the original text string you provided in the input field.
 
-<img class="md-img"  src="./media/decrypted-data.png"  height="450" />
+<img class="md-img"  src="./media/decrypted-data-demo.png"  height="450" />
 
 Once done, you can clear the message and hit the "Reset" button to reset the edited code to it's default state.
 &nbsp;

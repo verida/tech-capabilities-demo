@@ -31,11 +31,11 @@ Once a message is sent successfully, the receipient receives a mobile notificati
 
 To transfer a message, select the "send message" button on the right-side panel. If your screen shows "connect" instead of "send message", start by [connecting to Verida Vault](./connect). In this scenario, the Verida connect modal won't popup because we are already logged into Verida Vault and our session stored.
 
-<img class="md-img"  src="./media/connected.png"  height="450" />
+<img class="md-img"  src="./media/connect.png"  height="450" />
 
 Upon selecting the send message button, the demo navigates to a screen where you can enter the recipient's DID and an empty text box where you can type your message. By default, the DID field contains the DID on your mobile application, but you can change it to another receiver DID.
 
-<img class="md-img"  src="./media/create-message.png"  height="450" />
+<img class="md-img"  src="./media/create-message-demo.png"  height="450" />
 
 When you're done typing the message, click send. You will receive a confirmation that your message has been successfully sent to the recipient.
 
@@ -45,7 +45,7 @@ When you're done typing the message, click send. You will receive a confirmation
 
 On your mobile device, you should see a Verida Vault notification for the message received from the demo app. Tap on the Verida Vault new message notification to accept or reject the incoming data. You might need to authenticate with biometrics or PIN before accepting or viewing the message.
 
-<img class="md-img"  src="./media/accept-message.png"  height="450" />
+<img class="md-img"  src="./media/accept-message-demo.png"  height="450" />
 
 Upon accepting the message, you can view its contents and take action. All messages will also include a timestamp indicating the send date and time.
 &nbsp;

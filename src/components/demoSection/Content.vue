@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="content">
-      <h1 class="text-primary">{{ title }}</h1>
       <div class="text-body" v-html="content"></div>
     </div>
   </div>

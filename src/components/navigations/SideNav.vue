@@ -112,8 +112,6 @@ export default Vue.extend({
   name: "side-nav",
   computed: {
     activePage() {
-      console.log(this.$route.name);
-
       return this.$route.name;
     },
   },

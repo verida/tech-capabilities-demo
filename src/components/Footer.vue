@@ -34,6 +34,7 @@ export default Vue.extend({
 }
 
 .divider {
+  margin: 4rem 0rem 0rem 0rem;
   background: #687085;
   height: 1px;
 }

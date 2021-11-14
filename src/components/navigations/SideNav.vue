@@ -4,7 +4,7 @@
       <a href="/" class="text-decoration-none">
         <img height="40" src="../../assets/images/Logo.svg" alt="verida-logo" />
       </a>
-      <h1>Demos</h1>
+      <h1>Tutorials</h1>
       <router-link
         class="router-link"
         to="/connect"

@@ -2,8 +2,11 @@
   <div>
     <div class="d-flex justify-content-between hero">
       <div class="text-left text-primary hero-content">
-        <h1>Verida Tech Capabilities</h1>
-        <span>Check out our demos to find out about our capabilities</span>
+        <h1>Learn Verida</h1>
+        <span
+          >Check out the interactive tutorials for an introduction to Verida's
+          Web3 APIs</span
+        >
         <div class="hero-content-demo row">
           <div class="col-6 sm-col-12">
             <router-link

@@ -32,25 +32,25 @@ When storing data with schema, you need to enter all data fields as defined in t
 &nbsp;
 To create and save a record, navigate to the "store data with schema" blade of the demo and select the "store data" button, as shown below.
 
-<img class="md-img"  src="./media/store-data-with-schema.png"  height="450" />
+<img class="md-img"  src="./media/store-data-with-schema-demo.png"  height="450" />
 
 &nbsp;
 
 Upon clicking the "store data" button, the demo reconnects to Verida Vault and redirects you to the "save data" screen, as shown below. If you haven't connected to the Verida Vault yet, you will be prompted to complete the connection process before saving any data.
 
-<img class="md-img"  src="./media/store-data-with-schema.png"  height="450" />
+<img class="md-img"  src="./media/store-data-with-schema-demo.png"  height="450" />
 
 &nbsp;
 While on the "save data" screen, enter all the required data fields depending on the schema you're using. In this example, we're using a simple social contact schema that requires the user to provide their first name, last name, and email before saving the record into a datastore.
 
-<img class="md-img"  src="./media/input-text-fields.png"  height="450" />
+<img class="md-img"  src="./media/input-text-fields-demo.png"  height="450" />
 
 &nbsp;
 Unlike database, Verida datastores provide a fixed schema that must be validated before a record is saved. This allows data to be shared or synchronised across multiple applications that use the same schema. If you try saving an incomplete record into a datastore, an error is returned because some required data fields are missing.
 &nbsp;
 In the example below, we try saving a social contact record with an intentional error in the email field (invalid email) and the application generates an error message.
 
-<img class="md-img"  src="./media/error-saving-data.png"  height="450" />
+<img class="md-img"  src="./media/error-saving-data-demo.png"  height="450" />
 
 &nbsp;
 

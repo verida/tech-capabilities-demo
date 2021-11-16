@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "/schemas/schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://27tqk.csb.app/schemas/store-data.json",
   "name": "/schemas/",
   "title": "Schema Data",
   "titlePlural": "Schema Data",
@@ -25,7 +25,7 @@
     "view": ["email", "firstName", "lastName"]
   },
   "allOf": [
-    { "$ref": "https://schemas.verida.io/base/schema.json" },
+    { "$ref": "https://core.schemas.verida.io/base/v0.1.0/schema.json" },
     {
       "properties": {
         "email": {

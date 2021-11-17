@@ -148,7 +148,8 @@ class VeridaHelpers extends EventEmitter {
   async requestUserData(did) {
     const type = "inbox/type/dataRequest";
     const data = {
-      requestSchema: "https://schemas.verida.io/social/contact/schema.json",
+      requestSchema:
+        "https://common.schemas.verida.io/social/contact/v0.1.0/schema.json",
       filter: {},
       userSelect: true,
     };

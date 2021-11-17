@@ -1,5 +1,6 @@
 import "../assets/styles/connect.css";
 import unlinkIcon from "../assets/images/unlink.png";
+import linkIcon from "../assets/images/link.png";
 import VeridaHelpers from "../helpers/VeridaHelpers";
 
 export const Connect = () => {
@@ -23,7 +24,7 @@ export const Connect = () => {
     </div>
     <div class="action-btn">
       <button class="connect" id="connect">
-        <img class="btn-image" src=${unlinkIcon}  /><span>Connect</span>
+        <img class="btn-image" src=${linkIcon}  /><span>Connect</span>
       </button>
       <button class="disconnect">
         <img class="btn-image" src=${unlinkIcon}  /><span>Disconnect</span>
@@ -55,9 +56,11 @@ export const Connect = () => {
 
   const setUserProfile = () => {
     const user = VeridaHelpers.profile;
-    createElement(".user-name").innerHTML = user.name;
     if (user.avatar) {
       createElement(".user-avatar").src = user.avatar;
+    }
+    if (user.name) {
+      createElement(".user-name").innerHTML = user.name;
     }
     createElement(".app-user").style.display = "flex";
   };

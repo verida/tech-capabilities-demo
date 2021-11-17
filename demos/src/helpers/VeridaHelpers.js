@@ -68,8 +68,8 @@ class VeridaHelpers extends EventEmitter {
 
     this.emit("initialized");
 
-    this.database = await this.context.openDatabase("test_db");
-    this.dataStore = await this.context.openDatastore(TEST_DATASTORE_SCHEMA);
+    this.database = await this.context?.openDatabase("test_db");
+    this.dataStore = await this.context?.openDatastore(TEST_DATASTORE_SCHEMA);
   }
 
   async initProfile() {
@@ -81,7 +81,7 @@ class VeridaHelpers extends EventEmitter {
         this.profile = {
           name: data.name,
           country: data.country,
-          avatar: data.avatar.uri,
+          avatar: data.avatar?.uri || "",
         };
         this.emit("profileChanged", this.profile);
       };
@@ -149,7 +149,8 @@ class VeridaHelpers extends EventEmitter {
   async requestUserData(did) {
     const type = "inbox/type/dataRequest";
     const data = {
-      requestSchema: "https://schemas.verida.io/social/contact/schema.json",
+      requestSchema:
+        "https://common.schemas.verida.io/social/contact/v0.1.0/schema.json",
       filter: {},
       userSelect: true,
     };

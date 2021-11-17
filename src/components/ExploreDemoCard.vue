@@ -74,13 +74,11 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 @import "../assets/scss/_variable.scss";
+
 $mobile: 768px;
 
 .rotated {
   transform: rotate(180deg);
-}
-.demo-bg {
-  padding: 10rem 0;
 }
 
 .demo-content {

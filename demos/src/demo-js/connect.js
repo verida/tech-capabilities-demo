@@ -57,9 +57,7 @@ export const Connect = () => {
     const user = VeridaHelpers.profile;
     createElement(".user-name").innerHTML = user.name;
     if (user.avatar) {
-      const parseAvatarValue = JSON.parse(user.avatar);
-      const avatar = `data:image/${parseAvatarValue.format};base64,${parseAvatarValue.base64}`;
-      createElement(".user-avatar").src = avatar;
+      createElement(".user-avatar").src = user.avatar;
     }
     createElement(".app-user").style.display = "flex";
   };

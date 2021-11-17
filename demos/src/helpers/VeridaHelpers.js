@@ -81,6 +81,7 @@ class VeridaHelpers extends EventEmitter {
         this.profile = {
           name: data.name,
           country: data.country,
+          avatar: data.avatar.uri,
         };
         this.emit("profileChanged", this.profile);
       };

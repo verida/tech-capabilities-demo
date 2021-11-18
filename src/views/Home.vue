@@ -23,7 +23,11 @@
                 @click="navigate"
               >
                 <div class="d-flex justify-content-center">
-                  <img src="../assets/icons/link.svg" alt="link" />
+                  <img
+                    class="mt-n1"
+                    src="../assets/icons/link.svg"
+                    alt="link"
+                  />
                   <span>Connect</span>
                 </div>
                 <div>
@@ -50,7 +54,11 @@
                 @click="navigate"
               >
                 <div class="d-flex justify-content-center">
-                  <img src="../assets/icons/Tree.svg" alt="link" />
+                  <img
+                    class="mt-n1"
+                    src="../assets/icons/Tree.svg"
+                    alt="link"
+                  />
                   <span>Store Schemaless Data</span>
                 </div>
                 <div>
@@ -77,7 +85,11 @@
                 @click="navigate"
               >
                 <div class="d-flex">
-                  <img src="../assets/icons/Share.svg" alt="link" />
+                  <img
+                    class="mt-n1"
+                    src="../assets/icons/Share.svg"
+                    alt="link"
+                  />
                   <span>Send Message</span>
                 </div>
                 <div>
@@ -104,7 +116,11 @@
                 @click="navigate"
               >
                 <div class="d-flex">
-                  <img src="../assets/icons/Database.svg" alt="link" />
+                  <img
+                    class="mt-n1"
+                    src="../assets/icons/Database.svg"
+                    alt="link"
+                  />
                   <span>Store Data With Schema</span>
                 </div>
                 <div>
@@ -131,7 +147,7 @@
                 @click="navigate"
               >
                 <div class="d-flex">
-                  <img src="../assets/icons/link.svg" alt="link" />
+                  <img  class="mt-n1" src="../assets/icons/link.svg" alt="link" />
                   <span>Share Data</span>
                 </div>
                 <div>
@@ -158,7 +174,7 @@
                 @click="navigate"
               >
                 <div class="d-flex">
-                  <img src="../assets/icons/pull_request.svg" alt="link" />
+                  <img class="mt-n1" src="../assets/icons/pull_request.svg" alt="link" />
                   <span>Request Data & Respond</span>
                 </div>
                 <div>
@@ -204,7 +220,7 @@ export default Vue.extend({
     &-demo {
       margin: 2.5rem 0 0 0;
       & > div {
-        margin: 0.3rem -0.4rem;
+        margin: 0 -0.4rem;
       }
       &-list {
         display: flex;
@@ -212,10 +228,8 @@ export default Vue.extend({
         justify-content: space-between;
         padding: 0 1.1rem 0 1.2rem;
         height: 4rem;
-
         background: #11132c;
         border: 1px solid #1d1f40;
-        // box-sizing: border-box;
         box-shadow: 0px 4px 25px rgba(65, 65, 65, 0.4);
         border-radius: $border-radius;
         span {

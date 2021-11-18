@@ -39,6 +39,8 @@ export const Connect = () => {
 
   const logout = async () => {
     await VeridaHelpers.logout();
+    createElement(".user-avatar").src = "";
+    createElement(".user-name").innerHTML = "";
     createElement(".app-user").style.display = "none";
     createElement(".disconnect").style.display = "none";
     createElement(".action-btn .connect").style.display = "block";

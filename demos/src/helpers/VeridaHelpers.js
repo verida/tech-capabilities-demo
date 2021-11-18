@@ -168,7 +168,7 @@ class VeridaHelpers extends EventEmitter {
   }
 
   async logout() {
-    await this.account.disconnect();
+    await this.context.getAccount().disconnect(CONTEXT_NAME);
     this.context = null;
     this.account = null;
     this.did = "";

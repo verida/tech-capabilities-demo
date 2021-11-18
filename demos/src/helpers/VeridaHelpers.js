@@ -68,8 +68,8 @@ class VeridaHelpers extends EventEmitter {
 
     this.emit("initialized");
 
-    this.database = await this.context.openDatabase("test_db");
-    this.dataStore = await this.context.openDatastore(TEST_DATASTORE_SCHEMA);
+    this.database = await this.context?.openDatabase("test_db");
+    this.dataStore = await this.context?.openDatastore(TEST_DATASTORE_SCHEMA);
   }
 
   async initProfile() {
@@ -81,6 +81,7 @@ class VeridaHelpers extends EventEmitter {
         this.profile = {
           name: data.name,
           country: data.country,
+          avatar: data.avatar?.uri || "",
         };
         this.emit("profileChanged", this.profile);
       };
@@ -167,7 +168,7 @@ class VeridaHelpers extends EventEmitter {
   }
 
   async logout() {
-    await this.account.disconnect();
+    await this.context.getAccount().disconnect(CONTEXT_NAME);
     this.context = null;
     this.account = null;
     this.did = "";
